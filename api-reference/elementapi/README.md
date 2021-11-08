@@ -78,15 +78,32 @@ Text, Input, Image, Video/Audio Element API에 공통으로 제공되는 내용�
       console.error('click');
     }
     ```
-*   **trigger (type:String|Event, detail:Array): void**
+*   **trigger (type:String, detail:Object): void**
 
-    이벤트를 발생시킵니다.
+    이벤트를 발생시킵니다.&#x20;
 
-    ```javascript
+    ```
     $self.trigger('click');
     // document API의 'click' 이벤트가 발생했습니다.
 
-    $self.trigger(new Event('custom'), [dataObject]);
+    // 데이터와 함께 전달하는 경우
+    $self.trigger('custom', data);
+
+    // 전달한 data는 originalEvent.detail 속성을 찾아 봐야함
+    $self.on('custom', function(e){
+        var data= (e.originalEvent || e).detail;
+    });
+    ```
+
+    전달되는 이벤트 객체는 버블링 됩니다.
+
+    ```javascript
+    // 전달되는 이벤트 객체
+    new CustomEvent(type, {
+      bubbles: true,
+      cancelable: true,
+      detail: detail
+    });
     ```
 
 #### 속성 관련 메서드
