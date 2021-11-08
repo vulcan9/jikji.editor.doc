@@ -78,13 +78,15 @@ Text, Input, Image, Video/Audio Element API에 공통으로 제공되는 내용�
       console.error('click');
     }
     ```
-*   **trigger (type): void**
+*   **trigger (type:String|Event, detail:Array): void**
 
     이벤트를 발생시킵니다.
 
     ```javascript
     $self.trigger('click');
     // document API의 'click' 이벤트가 발생했습니다.
+
+    $self.trigger(new Event('custom'), [dataObject]);
     ```
 
 #### 속성 관련 메서드
