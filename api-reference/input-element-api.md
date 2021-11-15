@@ -23,5 +23,8 @@
       $self.api.text('표시될 문자열');
       $self.api.text('표시될 문자열', 'over');
       ```
+  *   **saveLocal (value: Boolean): Boolean**
 
-##
+      input 입력값을 로컬 저장소(local storage)에 임시 저장하여 값을 유지하는 기능
+
+      켜기(true - default), 끄기(false)

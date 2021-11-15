@@ -25,6 +25,36 @@ console.log('문서 너비 : ', w);
 * ****[_**find (any): APIObject**_](jjapi.md#common-method-find)****
 * ****[_**findAll (): Object**_](jjapi.md#common-method-findall)****
 
+### 속성
+
+*   **$injector**
+
+    동적으로 UI를 추가할 필요가 있는 경우 페이지의 angular application을 이용할 수 있습니다.
+
+```
+// $injector 사용 예 (element 내에서 angular를 사용하고자 할때)
+function(){
+    // injection
+    const {$injector} = $self.document.angular();
+    const $compile = $injector.get('$compile');
+    const $rootScope = $injector.get('$rootScope');
+
+    // dom
+    const domString = '<div>{{name}}</div>'
+    const $dom = angular.element(domString);
+
+    // scope
+    const scope = $rootScope.$new(true);
+    scope.name = '이름';
+
+    // 컴파일
+    $compile($dom)(scope);
+    // scope.$applyAsync();
+    // $dom.insertAfter($node);
+    $parentNode.append($dom);
+}
+```
+
 ### 이벤트 관련 메서드
 
 `_eventNames` 속성에 포함된 이벤트 이름을 참고하여 이벤트를 등록하여 사용할 수 있습니다.
