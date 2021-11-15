@@ -33,7 +33,7 @@ console.log('문서 너비 : ', w);
 
 ```
 // $injector 사용 예 (element 내에서 angular를 사용하고자 할때)
-function(){
+function compile(){
     // injection
     const {$injector} = $self.document.angular();
     const $compile = $injector.get('$compile');
