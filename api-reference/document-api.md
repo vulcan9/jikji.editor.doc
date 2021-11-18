@@ -16,7 +16,7 @@ console.log('문서 너비 : ', w);
 
     ```javascript
     (API Object)._eventNames
-    // 출력 : "click, dblclick, mousedown, mousemove, mouseout, mouseover, mouseup"
+    // 출력 : "$destroy, click, dblclick, mousedown, mousemove, mouseout, mouseover, mouseup"
     ```
 * ****[_**uid: String**_](jjapi.md#common-property-uid)****
 * ****[_**dom: DOMElement**_](jjapi.md#common-property-dom)****

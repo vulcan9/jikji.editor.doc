@@ -48,7 +48,7 @@ Text, Input, Image, Video/Audio Element API에 공통으로 제공되는 내용�
 
     ```javascript
     (API Object)._eventNames
-    // 출력 : "click, dblclick, mousedown, mousemove, mouseout, mouseover, mouseup, resize"
+    // 출력 : "$destroy, click, dblclick, mousedown, mousemove, mouseout, mouseover, mouseup, resize"
     ```
 *   **id: String**
 
