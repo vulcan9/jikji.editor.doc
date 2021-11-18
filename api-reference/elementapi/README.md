@@ -28,7 +28,7 @@ Text, Input, Image, Video/Audio Element API에 공통으로 제공되는 내용�
 * ****[**document: APIObject**](../jjapi.md#undefined)****
 * ****[**scaleFactor (): Number**](../jjapi.md#undefined-1)****
 * ****[**find (): APIObject**](../jjapi.md#undefined-1)****
-* ****[**findAll (): Object**](../jjapi.md#undefined-1)****
+* ****[**findAll (onlyChild): Object**](../jjapi.md#undefined-1)****
 * **disable (): Boolean**
 
 #### 객체

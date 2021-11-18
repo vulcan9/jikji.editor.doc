@@ -79,11 +79,14 @@
     ```
 
     주) 재사용 가능한 Component를 제작을위해서는 `uid`를 사용하는 것이 좋습니다. Copy\&Paste 또는 Component로 저장하는 과정에서 `uid`는 자동으로 새로 생성되는 element를 찾지만 id 값은 변하지 않기 때문에 항상 같은 element만을 찾게 됩니다.
-*   _**findAll (): Object**_
+*   _**findAll (onlyChild): Object**_
 
     모든 Element API 목록을 리턴 합니다.
 
     ```javascript
     var map = $self.findAll();
     // Map {elementUID: elementAPI, ...}
+
+    // onlyChild를 지정하면 그룹 element인 경우 하위 element만 필터링 합니다. 
+    var childMap = $self.findAll(true)
     ```
