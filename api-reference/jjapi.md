@@ -65,23 +65,33 @@
     var scaleNumber = $self.scaleFactor();
     // document.body.style의 scale transform 속성값
     ```
-*   _**find (any): APIObject**_
+*   _**find (any, onlyChild:Boolean): APIObject**_
 
     DOM 또는 DOM id Attribute 값을 통해 Element 객체의 API를 찾습니다. 아무 값도 전달하지 않으면 자기 자신(API)을 리턴 합니다. `window API`와 `docuemnt API`는 각각 `$this`와 `$api.document` 를 통해 접근할 수 있습니다.
 
-    ```javascript
-    // uid값과 일치하는 element의 API를 리턴
-    var api = $self.find(uid);
-    // id값과 일치한 id attribute을 가진 element의 API를 리턴
-    var api = $self.find(id);
-    // dom과 일치하는 element의 API를 리턴
-    var api = $self.find(dom);
-    ```
+    * any: **String | DOMElement** \
+      id, uid, dom, name 값으로 element의 API Object 찾기   &#x20;
+    *   onlyChild: **Boolean**  (생략가능) 자신의 하위 노드에 대해서만 탐색할지(true) 여부       &#x20;
 
-    주) 재사용 가능한 Component를 제작을위해서는 `uid`를 사용하는 것이 좋습니다. Copy\&Paste 또는 Component로 저장하는 과정에서 `uid`는 자동으로 새로 생성되는 element를 찾지만 id 값은 변하지 않기 때문에 항상 같은 element만을 찾게 됩니다.
+        ```javascript
+        // uid값과 일치하는 element의 API를 리턴
+        var api = $self.find(uid);
+        // id값과 일치한 id attribute을 가진 element의 API를 리턴
+        var api = $self.find(id);
+        // dom과 일치하는 element의 API를 리턴
+        var api = $self.find(dom);
+        // name과 일치하는 element의 API를 리턴
+        var api = $self.find(name);
+
+        // 반환되는 api 는 배열일수도 있습니다. 
+        ```
+
+        주) 재사용 가능한 Component를 제작을위해서는 `uid`를 사용하는 것이 좋습니다. Copy\&Paste 또는 Component로 저장하는 과정에서 `uid`는 자동으로 새로 생성되는 element를 찾지만 id 값은 변하지 않기 때문에 항상 같은 element만을 찾게 됩니다.
 *   _**findAll (onlyChild): Object**_
 
     모든 Element API 목록을 리턴 합니다.
+
+    * onlyChild: **Boolean**  (생략가능 ) 자신의 하위 노드에 대해서만 탐색할지(true) 여부  &#x20;
 
     ```javascript
     var map = $self.findAll();
