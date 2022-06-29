@@ -18,7 +18,9 @@
 
 ```javascript
 //var buttonAPI = $self;
-var imageAPI = $self.find('image');
+var imageAPI = $self.find('image', false);
+// 또는
+// var imageAPI = window.$this.find('image');
 imageAPI.toggleVisible();
 ```
 
