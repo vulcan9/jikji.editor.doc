@@ -157,6 +157,14 @@
         ...
         // 다시 실행 : (100) 위치로 다시 이동하여 실행됨
         seq.play();
+
+        // stop의 경우 리턴 값에 특별히 pipe 메서드가 제공되어
+        // 다른 animation으로 전환할 수 있습니다.
+        seq.stop()
+          .pipe(function(){
+            // 계속해서 다른 seq2 실행
+            seq2.play();
+          });
         ```
     *   _**pause (): sequence Object**_
 
