@@ -31,8 +31,8 @@ dnd 객체를 이용하면 드래그 & 드랍 기능을 구현할 수 있습니�
 
 * **id: String**\
   드래그-드랍 동작을 구분하는 고유 아이디
-* **element: DOMElement**\
-  드래그 기능을 추가할 대상 DOM Element (jquery)
+* **element: DOMElement|String**\
+  드래그 기능을 추가할 대상 DOM Element 또는 element uid
 *   **dragStart: Function**\
     드래그 시작 이벤트
 
@@ -47,7 +47,7 @@ dnd 객체를 이용하면 드래그 & 드랍 기능을 구현할 수 있습니�
     ```
 * **selects: Array**\
   여러 dnd 객체를 한번에 드래그할때 사용.\
-  드래그되는 각 요소를 구분할 수 있는 고유 id를 저장한 후 ghost 또는 drop 할때 식별해서 사용.
+  드래그되는 각 요소를 구분할 수 있는 고유 uid를 저장한 후 ghost 또는 drop 할때 식별해서 사용.
 * **ghost: Function**\
   ghost 이미지 캡쳐에 사용될 element를 리턴하는 함수
 
@@ -76,8 +76,8 @@ function(selects){
 
 * **id: String**\
   드래그-드랍 동작을 구분하는 고유 아이디
-* **element: DOMElement**\
-  드랍 기능을 추가할 대상 DOM Element (jquery)
+* **element: DOMElement|String**\
+  드랍 기능을 추가할 대상 DOM Element 또는 element uid
 *   **dragEnter: Function**
 
     ```

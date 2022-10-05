@@ -39,8 +39,6 @@ Text, Input, Image, Video/Audio Element API에 공통으로 제공되는 내용�
 *   **capsule: Object**
 
     캡슐화 목록에서 설정된 값이 전달됩니다. capsule 객체에 대한 내용은 [캡슐화 기능 사용하기](../../tutorial/capsulize/#capsule) 문서를 참고하세요.
-* **dnd: Object**\
-  Drag & Drop 기능을 지원합니다. dnd 객체 활용 방법은 [Drag \&Drop 기능 사용하기](../../tutorial/drag-and-drop.md) 문서를 참고하세요
 
 #### 속성
 
