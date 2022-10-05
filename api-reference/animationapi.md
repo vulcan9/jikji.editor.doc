@@ -80,7 +80,7 @@
         });
         group.animation.sequence()
           .next({x: 300, y: 300})
-          .next(x: 600, y: 300})
+          .next({x: 600, y: 300})
           .next({x: 600, y: 600})
 
           // 값 변동 없으므로 아래 두 next 메서드는 무시됨
