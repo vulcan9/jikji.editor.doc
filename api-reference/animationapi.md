@@ -106,13 +106,11 @@
 
         다음 애니메이션 시작하기 전에 시간을 지연시킵니다.
 
-        *   second : **Number**\
-
+        *   second : **Number**
 
             지연 시간 (단위: 초)
 
         ```javascript
-        // `transition`을 개별적으로 지정하고자 할때
         group.animation.sequence()
           .next({x: 300, y: 300})
 
@@ -122,20 +120,29 @@
           .next({x: 600, y: 300})
           .play();
         ```
-    *   _**play (callback: Function): void**_
+    *   _**play (onComplete: Function, onLoop: Function): void**_
 
         `sequence` 객체에 정의된 애니메이션을 시작합니다.
 
-        *   callback : **Function**\
-
+        *   onComplete : **Function**
 
             transition이 모두 완료되어 멈출때 호출됨
+        *   onLoop : **Function**
+
+            loop가 설정되어 있다면 loop가 1번 완료 될때마다 호출됨
 
         ```javascript
-        // `transition`을 개별적으로 지정하고자 할때
         group.animation.sequence()
           .next({x: 300, y: 300})
           .play(function(loop_counter){
+              // 에니메이션 완료완
+          });
+          
+        // loop가 설정된 경우
+        seq.stop()
+          // 5회만 반복
+          .loop(5)
+          .play(nulll, loop_counter){
               // loop_counter :  현재 몇번 반복 실행되고 있는지 횟수
           });
         ```
