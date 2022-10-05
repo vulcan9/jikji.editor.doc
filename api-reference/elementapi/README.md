@@ -301,6 +301,8 @@ Jik-ji 저작툴에서 생성된 element에 style을 적용할때에는 알아�
         &#x20;y축 이동가능한 최소값.
       * maxY: **Number** \
         &#x20;y축 이동가능한 최대값.
+      * useCapture: **Boolean**\
+        move 이벤트에 useCapture 설정값 적용.
 
     ```javascript
     // element에 드래그 기능을 구현하는 가장 간단한 방법 입니다.
