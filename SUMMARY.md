@@ -14,6 +14,7 @@
   * [컴포넌트 만들기](tutorial/capsulize/create.md)
   * [컴포넌트 Export/Import](tutorial/capsulize/export-import.md)
   * [하위 요소에 값 전달](tutorial/capsulize/value-chain.md)
+* [Drag & Drop 기능 사용하기](tutorial/drag-and-drop.md)
 * [컴포넌트 경로 참조 변수](tutorial/export-root-path.md)
 
 ## Sample
@@ -33,6 +34,7 @@
 * [Element 공통 API](api-reference/elementapi/README.md)
   * [animation 객체](api-reference/elementapi/animation.md)
   * [capsule 객체](api-reference/elementapi/capsule.md)
+  * [dnd 객체 (Drag \&Drop )](api-reference/elementapi/dnd-drag-and-drop.md)
 * [Text Element API](api-reference/text-element-api.md)
 * [Input Element API](api-reference/input-element-api.md)
 * [Image Element API](api-reference/image-element-api.md)
