@@ -10,24 +10,24 @@ _mouseID = '드래그 마우스 이벤트 ID';
 _dndID = '드래그&드랍 아이디';
 
 removeUI(){
-    if(!this._mouseID) return;
+    if(!_mouseID) return;
 
-    this.$self.dnd.removeDrag(this._mouseID);
-    this.$self.dnd.destroy(this._mouseID);
+    $self.dnd.removeDrag(_mouseID);
+    $self.dnd.destroy(_mouseID);
 
-    this._mouseID = null;
-    this._dndID = null;
+    _mouseID = null;
+    _dndID = null;
 }
 
 createUI() {
-    this.$self.dnd.create(this._mouseID);
-    this.$self.dnd.setDrag(this._mouseID , {
-        id: this._dndID,
-        element: this.$self.uid,
+    $self.dnd.create(_mouseID);
+    $self.dnd.setDrag(_mouseID , {
+        id: _dndID,
+        element: $self.uid,
         ghostName: 'ghost-drager-container',
 
-        dragStart: this.onDragStart.bind(this),
-        dragEnd: this.onDragEnd.bind(this)
+        dragStart: onDragStart,
+        dragEnd: onDragEnd
     });
 }
 
@@ -36,7 +36,7 @@ onDragStart(e, dragData){
 
     // ghost 이미지 표시 위해 id가 필요함
     dragData.selects = {
-        id: this._mouseID
+        id: _mouseID
     };
     // document.body.classList.add("being-dragged");
     
@@ -60,26 +60,26 @@ _mouseID = '드랍 마우스 이벤트 ID';
 _dndID = '드래그&드랍 아이디';
 
 removeUI(){
-    if(!this._mouseID) return;
+    if(!_mouseID) return;
 
-    this.$self.dnd.removeDrop(this._mouseID);
-    this.$self.dnd.destroy(this._mouseID);
+    $self.dnd.removeDrop(_mouseID);
+    $self.dnd.destroy(_mouseID);
 
-    this._mouseID = null;
-    this._dndID = null;
+    _mouseID = null;
+    _dndID = null;
 }
 
 createUI() {
-    this.$self.dnd.create(this._mouseID);
-    this.$self.dnd.setDrop(this._mouseID , {
-        id: this._dndID,
-        element: this.$self.uid,
+    $self.dnd.create(_mouseID);
+    $self.dnd.setDrop(_mouseID , {
+        id: _dndID,
+        element: $self.uid,
 
-        isDropAllowed: this.isDropAllowed.bind(this),
-        dragEnter: this.onDragEnter.bind(this),
-        dragOver: this.onDragOver.bind(this),
-        dragLeave: this.onDragLeave.bind(this),
-        drop: this.onDrop.bind(this)
+        isDropAllowed: isDropAllowed,
+        dragEnter: onDragEnter,
+        dragOver: onDragOver,
+        dragLeave: onDragLeave,
+        drop: onDrop
     });
 }
 
