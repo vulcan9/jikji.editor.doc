@@ -35,7 +35,7 @@ HTML Element에는 여러 방법으로 경로를 지정할 수 있으므로 HTML
 
     * 배포후&#x20;
 
-    ![](<../.gitbook/assets/image (2).png>)
+    <img src="../.gitbook/assets/image (2).png" alt="" data-size="original">
 
 {% hint style="info" %}
 {exportRoot} 은 변수로 사용되는것이 아니라 문자열을 경로로 치환하는 것입니다.
