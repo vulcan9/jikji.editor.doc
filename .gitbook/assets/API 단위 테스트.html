@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<style>
+    [play-button], [pause-button]{ cursor: pointer; display: inline-block; }
+    [play-button]:hover, [pause-button]:hover{ color: red; }
+</style>
+
+
+<!-- 1. The <iframe> (and video player) will replace this <div> tag.
+ origin=https://admin.kpub.co.kr&autoplay=1
+ -->
+<div case1="div 태그를 사용">
+    <h2>div 태그를 사용</h2>
+    <div id="divPlayer"></div>
+    <div play-button>재생</div>
+    <div pause-button>일시정지</div>
+</div>
+
+<div case2>
+    <h2>iframe 태그를 사용</h2>
+    <iframe id="iframePlayer" type="text/html" width="720" height="405"
+            src="https://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1"
+            frameborder="0" allowfullscreen
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+    <div play-button>재생</div>
+    <div pause-button>일시정지</div>
+</div>
+
+
+
+
+<script>
+    //-------------------
+    // API 라이브러리 로드
+    //-------------------
+
+    (function (){
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    })();
+
+    var _buildList = [];
+    var _apiIsReady = false;
+
+    // 영상이 준비되면 실행되는 함수 (전역함수이므로 한번만 호출됨)
+    window.onYouTubeIframeAPIReady = function() {
+        // var player = new YT.Player(id, config);
+        // console.error('onYouTubeIframeAPIReady: ', player);
+        // if(callback) callback(player);
+        _apiIsReady = true;
+        penddingBuildPlayer();
+    };
+
+    //-------------------
+    // player 설정
+    //-------------------
+
+    // div
+    buildPlayer('[case1]', 'divPlayer', {
+        videoId: 'M7lc1UVf-VE',
+        width: '640',
+        height: '360'
+    });
+
+    // iframe
+    buildPlayer('[case2]', 'iframePlayer');
+
+    function penddingBuildPlayer(){
+        _buildList.forEach(function (args){
+            buildPlayer.apply(null, args);
+        });
+    }
+
+    function buildPlayer(containerSelector, playerID, option){
+        // API가 준비될때까지 대기
+        if(!_apiIsReady){
+            _buildList.push(Array.prototype.slice.apply(arguments));
+            return;
+        }
+
+        // var playerDOM = document.querySelector(containerSelector + ' #' + playerID);
+        var playButtonDOM = document.querySelector(containerSelector + ' [play-button]');
+        var pauseButtonDOM = document.querySelector(containerSelector + ' [pause-button]');
+
+        youtube_play_api(playerID, option, function (youtubePlayer){
+            var player = youtubePlayer;
+            setButton(player);
+        });
+
+        function youtube_play_api(id, option, callback){
+
+            // API가 준비된 상태이면 Player 설정
+            var config = (function (){
+                var newOptions = {
+                    events: {
+                        'onReady': onPlayerReady,
+                        'onStateChange': onPlayerStateChange,
+                        'onError': onPlayerError
+                    }
+                }
+                if(option){
+                    for(var prop in option) newOptions[prop] = option[prop];
+                }
+                return newOptions;
+            })();
+
+            var player = new YT.Player(id, config);
+            console.error('onYouTubeIframeAPIReady: ', player);
+            if(callback) callback(player);
+
+            function onPlayerReady(event) {
+                console.error('onPlayerReady: ', event.target);
+            }
+            function onPlayerStateChange(event) {
+                console.error('onPlayerStateChange: ', event);
+            }
+            function onPlayerError(event) {
+                console.error('ERROR: ', event);
+            }
+        }
+
+        function setButton(player){
+            playButtonDOM.addEventListener('click', function (){
+                console.error('재생: ', player.h);
+                player.playVideo();
+            });
+            pauseButtonDOM.addEventListener('click', function (){
+                console.error('일시 정지: ', player);
+                player.pauseVideo();
+            });
+        }
+
+    }
+
+
+
+
+
+
+
+
+    // youtube_play_api('ytplayer', function (youtubePlayer){
+    //     player = youtubePlayer;
+    // });
+
+
+    /*
+    // 2. This code loads the IFrame Player API code asynchronously.
+    var tag = document.createElement('script');
+
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // 3. This function creates an <iframe> (and YouTube player)
+    //    after the API code downloads.
+    var player;
+    window.onYouTubeIframeAPIReady = function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+            height: '360',
+            width: '640',
+            videoId: 'M7lc1UVf-VE',
+            events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayerStateChange
+            }
+        });
+
+        // var iframe = document.querySelector('iframe#player');
+        // iframe.setAttribute('sandbox', 'allow-forms allow-scripts allow-pointer-lock allow-same-origin allow-top-navigation allow-presentation');
+        // console.error('iframe: ' , iframe);
+    }
+
+    // 4. The API will call this function when the video player is ready.
+    function onPlayerReady(event) {
+        console.error('player: ' , player);
+        console.error('iframe: ' , event.target);
+        event.target.playVideo();
+    }
+
+    // 5. The API calls this function when the player's state changes.
+    //    The function indicates that when playing a video (state=1),
+    //    the player should play for six seconds and then stop.
+    var done = false;
+    function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+            setTimeout(stopVideo, 6000);
+            done = true;
+        }
+    }
+    function stopVideo() {
+        player.stopVideo();
+    }
+    */
+</script>
+</body>
+</html>

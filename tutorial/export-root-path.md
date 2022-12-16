@@ -6,13 +6,13 @@ HTML Element에는 여러 방법으로 경로를 지정할 수 있으므로 HTML
 
 *   HTML Element Css에 경로 지정하는 경우
 
-    ![](<../.gitbook/assets/image (3).png>)
+    ![](<../.gitbook/assets/image (3) (1).png>)
 *   HTML 태그에서 이미지 경로를 지정하는 경우&#x20;
 
     ![](<../.gitbook/assets/image (1).png>)
 * API를 사용하여 이미지 소스를 바꾸는 경우
 
-![](../.gitbook/assets/image.png)
+![](<../.gitbook/assets/image (2).png>)
 
 위와 같은 경우 컴포넌트, 템플릿으로 만든 후 경로는 다음과 같이 변경되기 때문에 이미지는 나타나지 않는다.
 
@@ -31,11 +31,11 @@ HTML Element에는 여러 방법으로 경로를 지정할 수 있으므로 HTML
 
     * 배포전&#x20;
 
-    ![](<../.gitbook/assets/image (5).png>)
+    ![](<../.gitbook/assets/image (5) (1).png>)
 
     * 배포후&#x20;
 
-    <img src="../.gitbook/assets/image (2).png" alt="" data-size="original">
+    <img src="../.gitbook/assets/image (2) (1).png" alt="" data-size="original">
 
 {% hint style="info" %}
 {exportRoot} 은 변수로 사용되는것이 아니라 문자열을 경로로 치환하는 것입니다.
