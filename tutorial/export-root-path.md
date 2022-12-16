@@ -12,7 +12,7 @@ HTML Element에는 여러 방법으로 경로를 지정할 수 있으므로 HTML
     ![](<../.gitbook/assets/image (1).png>)
 * API를 사용하여 이미지 소스를 바꾸는 경우
 
-![](<../.gitbook/assets/image (2).png>)
+![](<../.gitbook/assets/image (9).png>)
 
 위와 같은 경우 컴포넌트, 템플릿으로 만든 후 경로는 다음과 같이 변경되기 때문에 이미지는 나타나지 않는다.
 
