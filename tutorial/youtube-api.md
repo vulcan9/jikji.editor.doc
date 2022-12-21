@@ -40,6 +40,7 @@ youtube API는 기존 DIV 태그를  IFrame으로 변환 하거나 새로 생성
 ![](<../.gitbook/assets/image (2).png>)
 
 ```
+// ... 코드 주요 내용
 var playerID = 'youtube_video';
 
 //------------------
@@ -71,8 +72,9 @@ window.youtube_in_element(playerID, option, function (playerInterface){
 
 **동작 방식**
 
-* 이미지요소 내부 DOM이 youtubeAPI에 의해 변경됨 (IFrame으로 변경됨)
-* `videoId` 옵션으로 재생 대상을 바꿀 수 있
+* 이미지 요소 내부 DOM이 youtubeAPI에 의해 변경됨 (IFrame으로 변경됨)
+* 이미지 요소 특성은 사라짐 (이미지 요소의 API는 동작 안함)
+* `videoId` 옵션으로 재생 대상을 바꿀 수 있음
 * 이미지 요소 이외의 요소에도 적용 가능한 방법임 (이미지 요소가 가장 무난함)
 
 (참조) iframe 삽입에 대한 YouTube Player API [https://developers.google.com/youtube/iframe\_api\_reference?hl=ko](https://developers.google.com/youtube/iframe\_api\_reference?hl=ko)
@@ -96,15 +98,15 @@ URL 뒤에 `enablejsapi=1` 매개변수를 전달해 주어야 JS를 통해 컨�
 
 ![](<../.gitbook/assets/image (2).png>)
 
-```
-var playerID = 'youtube_video';
-
+<pre><code><strong>// ... 코드 주요 내용
+</strong><strong>var playerID = 'youtube_video';
+</strong>
 //------------------
 // IFrame 설정
 //------------------
 
 (function (){
-  // http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://localhost:5301
+  // http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&#x26;origin=http://localhost:5301
   var $player = $self.find('element-3b9d2eb3-7db1-451a-b6a5-a8d71593c374', true);
   var iframe = $($player.dom).find('iframe')[0];
   iframe.id = playerID;
@@ -121,13 +123,13 @@ window.youtube_in_element(playerID, null, function (playerInterface){
 });
 
 // ...나머지 코드는 예제 참고
-```
+</code></pre>
 
 **동작 방식**
 
 * WEB 뷰어의 IFrame을 이용하는 방법임
 * WEB 뷰어에 URL을 직접 설정해 주어야함
-* 대신URL 변수로에  player 매개변수 값을 전달할 수 있음\
+* 대신URL 변수로  player 매개변수 값을 전달할 수 있음\
   ( [https://developers.google.com/youtube/player\_parameters?hl=ko](https://developers.google.com/youtube/player\_parameters?hl=ko) )
 
 ## `HTML 박스` 요소에 생성하는 방법
@@ -154,7 +156,7 @@ window.youtube_in_element(playerID, null, function (playerInterface){
 **JS 설정**
 
 ```
-
+// ... 코드 주요 내용
 var playerID = 'youtube_video';
 
 //------------------
@@ -181,5 +183,6 @@ window.youtube_in_element(playerID, option, function (playerInterface){
 **동작 방식**
 
 * HTML 박스(IFrame) 안에서 독립된 context (html 페이지)에서 구성됨
+* HTML 박스(IFrame) 안에 유튜브  플레이어 (IFrame)가 생성됨되는 구조임
 * HTML 편집창에서는 $self, $this 변수 사용할 수는 있으나 편집창 미리보기 화면에는 적용되지 않음 (브라우저 미리보기에서는 적용됨)
 
