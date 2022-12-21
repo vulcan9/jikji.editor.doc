@@ -1,20 +1,23 @@
 ---
-description: youtube API를 사용하여 직지에 유튜브 영상을 삽입하는 방법을 알아봅니다.
+description: >-
+  youtube API를 사용하여 직지에 유튜브 영상을 삽입하는 방법을 알아봅니다. 단순히 youtube 영상을 삽입하는 것이 아니라 직지에서
+  youtube API를 통해 영상을 제어 가능하도록 만드는 방법입니다.
 ---
 
 # youtube API 활용하기
 
 #### 유튜브 비디오 플레이어 삽입   방법
 
+youtube API는 기존 DIV 태그를  IFrame으로 변환 하거나 새로 생성하여  플레이어를 구성합니다.\
+그러므로 직지에서 플레이어를 구성할 공간(DIV 또는 IFrame)을  제공하고, 제어 코드를 삽입하여 youtube API를 사용할 수 있습니다.
+
 * `이미지` 요소에 생성하는 방법
 * `Web 뷰어` 요소에 생성하는 방법
 * `HTML 박스` 요소에 생성하는 방법
 
-
-
 **데모 보기** ( [https://me2.do/xHngPwMi](https://me2.do/xHngPwMi) )
 
-{% file src="../.gitbook/assets/API 단위 테스트.html" %}
+{% file src="../.gitbook/assets/API 단위 테스트.zip" %}
 유튜브 API 단위 테스트  문서&#x20;
 {% endfile %}
 
