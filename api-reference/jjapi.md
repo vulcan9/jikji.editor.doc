@@ -71,7 +71,7 @@
 
     * any: **String | DOMElement** \
       id, uid, dom, name 값으로 element의 API Object 찾기   &#x20;
-    *   onlyChild: **Boolean**  (생략가능) 자신의 하위 노드에 대해서만 탐색할지(true) 여부       &#x20;
+    *   onlyChild: **Boolean**  (생략가능) 자신의 하위 노드(1-Depth)에 대해서만 탐색할지(true) 여부       &#x20;
 
         ```javascript
         // uid값과 일치하는 element의 API를 리턴
@@ -86,7 +86,7 @@
         // 반환되는 api 는 배열일수도 있습니다. 
         ```
 
-        주) 재사용 가능한 Component를 제작을위해서는 `uid`를 사용하는 것이 좋습니다. Copy\&Paste 또는 Component로 저장하는 과정에서 `uid`는 자동으로 새로 생성되는 element를 찾지만 id 값은 변하지 않기 때문에 항상 같은 element만을 찾게 됩니다.
+        (주의) 재사용 가능한 Component를 제작을위해서는 `uid`를 사용하는 것이 좋습니다. Copy\&Paste 또는 Component로 저장하는 과정에서 `uid`는 자동으로 새로 생성되는 element를 찾지만 id 값은 변하지 않기 때문에 항상 같은 element만을 찾게 됩니다.
 *   _**findAll (onlyChild): Object**_
 
     모든 Element API 목록을 리턴 합니다.

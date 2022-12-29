@@ -30,9 +30,3 @@ buttonAPI.on('click', function(){
 ```
 JJ-API로 해결할 수 있다면 DOM 객체를 직접 조작하지 않고 API 사용을 먼저 고려해 봅니다.
 ```
-
-## API 사용할 때 주의할 점
-
-### DOM 객체를 직접 조작할때 API 동작 동기화
-
-내용 작성...
