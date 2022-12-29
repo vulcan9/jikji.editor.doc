@@ -71,7 +71,7 @@
 
     * any: **String | DOMElement** \
       id, uid, dom, name 값으로 element의 API Object 찾기   &#x20;
-    *   onlyChild: **Boolean**  (생략가능) 자신의 하위 노드(1-Depth)에 대해서만 탐색할지(true) 여부       &#x20;
+    *   onlyChild: **Boolean**  (생략가능) 자신의 하위(1-Depth) 노드에 대해서만 탐색할지(true) 여부       &#x20;
 
         ```javascript
         // uid값과 일치하는 element의 API를 리턴
@@ -91,7 +91,7 @@
 
     모든 Element API 목록을 리턴 합니다.
 
-    * onlyChild: **Boolean**  (생략가능 ) 자신의 하위 노드에 대해서만 탐색할지(true) 여부  &#x20;
+    * onlyChild: **Boolean**  (생략가능 ) 자신의 하위(1-Depth) 노드에 대해서만 탐색할지(true) 여부  &#x20;
 
     ```javascript
     var map = $self.findAll();
