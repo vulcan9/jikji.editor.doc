@@ -100,3 +100,8 @@
     // onlyChild를 지정하면 그룹 element인 경우 하위 element만 필터링 합니다. 
     var childMap = $self.findAll(true)
     ```
+* _**loadJS (jsURL:String, onLoaded:Function):void**_\
+  _****_외부 JS 파일을 동적으로 로드합니다. 이미 로드된 JS 파일이면 중복 로드하지 않고 바로 `onLoaded` 메서드를 호출합니다.\
+  자세한 내용은 [Element에서 JS 파일 동적으로 로드](https://app.gitbook.com/s/y5qQb2jYHinob4a78GGK/\~/changes/d4OY85wjhCe2MUMUVOq3/tutorial/element-js) 페이지를 참고하세요\
+  <mark style="color:red;">(Jik-ji 3.1.44 버전 이상에서 지원됨)</mark>
+

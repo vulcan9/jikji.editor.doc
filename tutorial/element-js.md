@@ -3,10 +3,10 @@
 외부JS 파일을 사용하여  콤포넌트를 제작할때 다음 과정을 거치게 됩니다.
 
 1. 외부 파일 설정창에서  JS 파일을  등록합니다.\
-   ![](<../.gitbook/assets/image (10).png>)
+   ![](../.gitbook/assets/image.png)
 2. 페이지에 Element를 하나 삽입합니다.
 3. Element의  이벤트창의 \`initialize\` 이벤트에서 JS파일의 함수를 호출합니다.\
-   ![](../.gitbook/assets/image.png)
+   ![](<../.gitbook/assets/image (2).png>)
 4. Element를 콤포넌트로 등록합니다.
 5. 콤포넌트로 등록할때 JS 파일이 포함되도록 선택해 줍니다.\
    ![](<../.gitbook/assets/image (3).png>)

@@ -37,7 +37,7 @@ youtube API는 기존 DIV 태그를  IFrame으로 변환 하거나 새로 생성
 
 그룹을 선택한 후 `initialize` 이벤트 창에 스크립트를 작성합니다.
 
-![](<../.gitbook/assets/image (2).png>)
+![](<../.gitbook/assets/image (2) (2).png>)
 
 ```
 // ... 코드 주요 내용
@@ -96,7 +96,7 @@ URL 뒤에 `enablejsapi=1` 매개변수를 전달해 주어야 JS를 통해 컨�
 
 그룹을 선택한 후 `initialize` 이벤트 창에 스크립트를 작성합니다.
 
-![](<../.gitbook/assets/image (2).png>)
+![](<../.gitbook/assets/image (2) (2).png>)
 
 <pre><code><strong>// ... 코드 주요 내용
 </strong><strong>var playerID = 'youtube_video';
