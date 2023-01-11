@@ -1,4 +1,4 @@
-# 컴포넌트 경로 참조 변수
+# 콤포넌트 경로 참조 변수
 
 Element의 이이벤트 스크립트 작성 창이나 HTML Element의 코드 편집기에서 작성한 코드에 에셋 경로가 포함되어져 있다면 이 Element를 컴포넌트 또는 템플릿으로 만들때 에셋 경로가 바뀌게 됩니다.
 
@@ -9,7 +9,7 @@ HTML Element에는 여러 방법으로 경로를 지정할 수 있으므로 HTML
     ![](<../.gitbook/assets/image (3) (1).png>)
 *   HTML 태그에서 이미지 경로를 지정하는 경우&#x20;
 
-    ![](<../.gitbook/assets/image (1).png>)
+    ![](<../.gitbook/assets/image (1) (1).png>)
 * API를 사용하여 이미지 소스를 바꾸는 경우
 
 ![](<../.gitbook/assets/image (9).png>)
