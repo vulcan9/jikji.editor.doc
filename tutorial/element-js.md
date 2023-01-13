@@ -82,3 +82,11 @@ $self.loadJS('./{exportRoot}/shapeComponent.js', function (){
 ```
 {% endhint %}
 
+{% hint style="info" %}
+외부 JS 파일에서 인스턴스를 찾기 위해 element나 group의 uid를 사용할 수도 있습니다만,  콤포넌트나 템플릿을 만들기 위해서라면 권장하지는 않습니다.
+
+콤포넌트나 템플릿으로 변환할때 uid 값들이 변경되는데 외부 JS 파일안의 uid는 자동으로 변경되지 않습니다.
+
+이런  경우에는 이벤트 창 등에서 미리 uid 값들을 변수에 담은뒤 JS 파일에 전달하여 사용하면 자동으로 변경된 uid를 참조할 수 있습니다.
+{% endhint %}
+
