@@ -15,7 +15,6 @@
   * [컴포넌트 Export/Import](tutorial/capsulize/export-import.md)
   * [하위 요소에 값 전달](tutorial/capsulize/value-chain.md)
 * [Drag & Drop 기능 사용하기](tutorial/drag-and-drop.md)
-* [youtube API 활용하기](tutorial/youtube-api.md)
 * [콤포넌트 경로 참조 변수](tutorial/export-root-path.md)
 * [Element에서 JS 파일 동적으로 로드](tutorial/element-js.md)
 
@@ -23,6 +22,7 @@
 
 * [토글 버튼](sample/togglebutton.md)
 * [마우스 드래그 기능](sample/mousedrag.md)
+* [youtube API 활용하기](sample/youtube-api.md)
 
 ## API Reference
 
