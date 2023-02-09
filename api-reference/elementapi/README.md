@@ -196,12 +196,20 @@ Jik-ji 저작툴에서 설정된 크기, 위치 관련 API입니다. 매개변�
     ```
 *   **scale (value: Number|Object, stateName: String): Number**
 
-    **value: Number** element의 scale(`0 ~ 1`)입니다.\
-    **value: Objcet**  {x: x축scale (`0 ~ 1`), y:  y축scale (`0 ~ 1`)}\
-    \
-    `$self.scale()` 리턴값 \
-    \- x축, y축 scale이 같은 경우 Number 타입으로 리턴됨\
-    \- x축, y축 scale이 다른 경우 Object 타입으로 리턴됨 ({x, y})
+    * **value: Number** element의 scale(`0 ~ 1`)입니다.
+    * **value: Objcet**  {x: x축scale (`0 ~ 1`), y:  y축scale (`0 ~ 1`)}
+
+
+
+    * `$self.scale()` 리턴값
+      * x축, y축 scale이 같은 경우 Number 타입으로 리턴됨
+      * x축, y축 scale이 다른 경우 Object 타입으로 리턴됨 ({x, y})
+
+{% hint style="info" %}
+Group 요소인 경우 가로 세로 scale 비율이 1로 유지됩니다. \
+따라서 scale 메서드에 Object Value를 매개변수로 전달할때 x, y scale 값이 같지 않으면 에러를 발생시킵니다.\
+Group 요소에는 scale({x:2, y:2}) 보다는 scale(2)로 사용하는것이 더 편리합니다.
+{% endhint %}
 
 ```javascript
 // Getter
@@ -219,12 +227,6 @@ $self.scale(0.5, 'over');
 $self.scale({x:2, y:1});
 $self.scale({x:2, y:1}, 'over');
 ```
-
-{% hint style="info" %}
-Group 요소인 경우 가로 세로 scale 비율이 1로 유지됩니다. \
-따라서 scale 메서드에 Object Value를 매개변수로 전달할때 x, y scale 값이 같지 않으면 에러를 발생시킵니다.\
-Group 요소에는 scale({x:2, y:2}) 보다는 scale(2)로 사용하는것이 더 편리합니다.
-{% endhint %}
 
 #### visible 관련 메서드
 
