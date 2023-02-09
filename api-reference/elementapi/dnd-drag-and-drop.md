@@ -70,7 +70,7 @@ function(selects){
 }
 ```
 
-### dropConfig 매개변
+### dropConfig 매개변수
 
 `dragConfig`에 설정된 `id`와 같은 `id`로 설정된 dnd (drag)객체에 drop 기능이 허용됩니다.
 
