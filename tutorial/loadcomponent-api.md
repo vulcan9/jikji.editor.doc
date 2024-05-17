@@ -190,7 +190,7 @@ OPS/_share/asset.file
 
 **컴포넌트 로드할때 이름으로사용됨**&#x20;
 
-```
+```javascript
     // 컴포넌트 설치 정보
     const component = {
         // 컴포넌트 소스 파일에서 정의한 component 객체 참조 문자열
