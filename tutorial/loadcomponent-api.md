@@ -5,7 +5,7 @@ description: 컴포넌트를 만들어 배포하는 방법을 설명합니다.
 # loadComponent API를 이용하여 컴포넌트 작성하기
 
 &#x20;`jikji 3.3.31` 버전 이상에서 지원되는 `loadComponent` API를 이용하여 컴포넌트를 작성하는 방법을 소개합니다. \
-컴포넌트에 대한 기본적인 내용은 [Element에서 JS 파일 동적으로 로드](element-js.md) 페이지를 참고하세요
+컴포넌트에 대한 기본적인 내용은 [Element에서 JS 파일 동적으로 로드](element-js.md) 페이지를 참고하세요.
 
 ### 작업 내용
 
@@ -201,3 +201,4 @@ OPS/_share/asset.file
     }
 ```
 
+이후 컴포넌트에  배포, 등록 과정은 [Element에서 JS 파일 동적으로 로드](element-js.md) 페이지를 참고하세요.
