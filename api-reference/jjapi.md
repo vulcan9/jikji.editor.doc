@@ -116,7 +116,9 @@
   자세한 내용은 [Element에서 JS 파일 동적으로 로드](https://app.gitbook.com/s/y5qQb2jYHinob4a78GGK/\~/changes/d4OY85wjhCe2MUMUVOq3/tutorial/element-js) 페이지를 참고하세요\
   <mark style="color:red;">(Jik-ji 3.1.44 버전 이상에서 지원됨)</mark>
 * _**loadComponent(info, onload):void**_\
-  컴포넌트를 정의한 외부 JS파일을 loadJS 함수를 이용하여 로드하고 컴포넌트 정의 객체를 전달해 줍니다.
+  컴포넌트를 정의한 외부 JS파일을 loadJS 함수를 이용하여 로드하고 컴포넌트 정의 객체를 전달해 줍니다.\
+  자세한 내용은 [loadComponent API를 이용하여  컴포넌트 작성하기](../tutorial/loadcomponent-api.md) 페이지를 참고하세요\
+  <mark style="color:red;">(Jik-ji 3.3.31 버전 이상에서 지원됨)</mark>
   * info: {name:String, source: String}\
     name: 컴포넌트 정의 객체를 찾을 수 있는 문자열\
     source: 컴포넌트가 정의된 JS 파일 경로
@@ -153,5 +155,3 @@
       })(window['jikjiComponent'] || {});
       ```
 
-자세한 내용은 [Element에서 JS 파일 동적으로 로드](https://app.gitbook.com/s/y5qQb2jYHinob4a78GGK/\~/changes/d4OY85wjhCe2MUMUVOq3/tutorial/element-js) 페이지를 참고하세요\
-<mark style="color:red;">(Jik-ji 3.1.44 버전 이상에서 지원됨)</mark>
