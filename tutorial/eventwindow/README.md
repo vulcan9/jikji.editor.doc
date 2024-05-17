@@ -16,4 +16,4 @@
    ![](../../.gitbook/assets/eventwindow\_01.png)
 5. 런타임에 element 생성이 완료된 후 해당 이벤트가 발생했을때 실행되게 됩니다.
 6. 같은 이벤트에 여러개의 스크립트 코드를 추가할 수 있고, 추가된 코드들은 그림에서와 같이 추가된 순서대로 정렬됩니다. 이것은 런타임에 코드가 실행되는 순서와 같습니다.\
-   ![](../../.gitbook/assets/eventwindow\_01\_4.png)``
+   ![](../../.gitbook/assets/eventwindow\_01\_4.png)

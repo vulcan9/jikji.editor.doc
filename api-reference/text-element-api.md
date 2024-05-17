@@ -24,7 +24,7 @@
       $self.api.text('표시될 문자열', 'over');
       ```
   * **overflowX (value: String, stateName: String): String**\
-    ****value: 'auto', 'scroll', 'hidden'
+    value: 'auto', 'scroll', 'hidden'
   * **overflowY (value: String, stateName: String): String**
   *   **overflowVisible (value: Boolean, stateName: String): String**
 
