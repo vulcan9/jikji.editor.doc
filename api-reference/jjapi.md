@@ -65,8 +65,9 @@
     var scaleNumber = $self.scaleFactor();
     // document.body.style의 scale transform 속성값
     ```
-*   _**find (any, onlyChild:Boolean): APIObject**** **<mark style="color:red;">**(DEPRECATE: 대신 children API 사용)**</mark>_
+*   _**find (any, onlyChild:Boolean): APIObject**_&#x20;
 
+    _<mark style="color:red;">**(DEPRECATE: 대신 children API 사용)**</mark>_\
     DOM 또는 DOM id Attribute 값을 통해 Element 객체의 API를 찾습니다. 아무 값도 전달하지 않으면 자기 자신(API)을 리턴 합니다. `window API`와 `docuemnt API`는 각각 `$this`와 `$api.document` 를 통해 접근할 수 있습니다.
 
     * **any: String | DOMElement** \
@@ -91,8 +92,9 @@
     ```
 
     (주의) 재사용 가능한 Component를 제작을위해서는 `uid`를 사용하는 것이 좋습니다. Copy\&Paste 또는 Component로 저장하는 과정에서 `uid`는 자동으로 새로 생성되는 element를 찾지만 id 값은 변하지 않기 때문에 항상 같은 element만을 찾게 됩니다.
-*   _**findAll (onlyChild:Boolean): Object**** **<mark style="color:red;">**(DEPRECATE: 대신 childrenAll API 사용)**</mark>_
+*   _**findAll (onlyChild:Boolean): Object**_&#x20;
 
+    _<mark style="color:red;">**(DEPRECATE: 대신 childrenAll API 사용)**</mark>_ \
     모든 Element API 목록을 리턴 합니다.
 
     * onlyChild: **Boolean**  (생략가능 ) 자신의 하위(1-Depth) 노드에 대해서만 탐색할지(true) 여부   \
@@ -106,7 +108,7 @@
     // onlyChild를 지정하면 그룹 element인 경우 하위 element만 필터링 합니다. 
     var childMap = $self.findAll(true)
     ```
-*   _**children (any, oneDepth:Boolean): APIObject**_ (ver.3.3.32 이후)\
+*   _**children (any, oneDepth:Boolean): APIObject**_\
     <mark style="color:red;">(Jik-ji 3.3.32 버전 이상에서 지원됨)</mark>\
     <mark style="background-color:green;">자신의 하위 element 중에서</mark> id, uid, name 문자열   및 DOM 참조를 비교하여 Element 객체의 API를 찾습니다.  `find` 메서드와 다르게 DOM으로부터 검색하지 않고 데이터에서 검색한  결과를 리턴합니다. 아무것도   전달되지 않을때에는 `undefined`  값을 리턴 합니다.\
     `window API`와 `docuemnt API`는 각각 `$this`와 `$api.document` 를 통해 접근할 수 있습니다.
@@ -133,7 +135,7 @@
 
     \
     컴포넌트를 제작할때 이전처럼 uid 를 사용해도 되지만 `children` api의 oneDepth 옵션을 사용하면 name, id 등을 사용해도 (하위 그룹에 있을지 모를) 중복된 id 또는 name을 사용하는 다른 컴포넌트의 element가 검색되는 염려가 없기때문에 가독성 있는 코드를 생성할 수 있습니다.
-*   _**childrenAll (oneDepth:Boolean): Object**_ (ver.3.3.32 이후)\
+*   _**childrenAll (oneDepth:Boolean): Object**_\
     <mark style="color:red;">(Jik-ji 3.3.32 버전 이상에서 지원됨)</mark>\
     <mark style="background-color:green;">자신의  하위 모든 Element</mark>들의 API 목록을 리턴 합니다.
 
