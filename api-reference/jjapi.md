@@ -65,7 +65,7 @@
     var scaleNumber = $self.scaleFactor();
     // document.body.style의 scale transform 속성값
     ```
-*   _**find (any, onlyChild:Boolean): APIObject**_
+*   _**find (any, onlyChild:Boolean): APIObject**** **<mark style="color:red;">**(DEPRECATE: 대신 children API 사용)**</mark>_
 
     ~~DOM 또는 DOM id Attribute 값을 통해 Element 객체의 API를 찾습니다. 아무 값도 전달하지 않으면 자기 자신(API)을 리턴 합니다. `window API`와 `docuemnt API`는 각각 `$this`와 `$api.document` 를 통해 접근할 수 있습니다.~~\
     \
@@ -96,7 +96,7 @@
         \
         (ver.3.3.31 이후수정된 사항)\
         컴포넌트를 제작할때 이전처럼 uid 를 사용해도 되지만 find api의 onlyChild 옵션을 사용하면 name, id 등을 사용해도 하위 그룹에 있을지 모를 중복된 id 또는 name을 사용하는 다른 컴포넌트의 element가 검색되는 염려가 없기때문에 가독성 있는 코드를 생성할 수 있습니다.
-*   _**findAll (onlyChild): Object**_
+*   _**findAll (onlyChild): Object**** **<mark style="color:red;">**(DEPRECATE: 대신 childrenAll API 사용)**</mark>_
 
     모든 Element API 목록을 리턴 합니다.
 
