@@ -162,7 +162,7 @@
 *   _**loadComponent(info, onload):void**_\
     <mark style="color:red;">(Jik-ji 3.3.31 버전 이상에서 지원됨)</mark>\
     컴포넌트를 정의한 외부 JS파일을 loadJS 함수를 이용하여 로드하고 컴포넌트 정의 객체를 전달해 줍니다.\
-    자세한 내용은 [loadComponent API를 이용하여  컴포넌트 작성하기](../tutorial/loadcomponent-api.md) 페이지를 참고하세요
+    자세한 내용은 [loadComponent API를 이용하여  컴포넌트 작성하기](../tutorial/loadcomponent-api-1.md) 페이지를 참고하세요
 
     * **info: {name:String, source: String}**\
       name: 컴포넌트 정의 객체를 찾을 수 있는 문자열\

@@ -17,7 +17,8 @@
 * [Drag & Drop 기능 사용하기](tutorial/drag-and-drop.md)
 * [콤포넌트 경로 참조 변수](tutorial/export-root-path.md)
 * [Element에서 JS 파일 동적으로 로드](tutorial/element-js.md)
-* [loadComponent API를 이용하여 컴포넌트 작성하기](tutorial/loadcomponent-api.md)
+* [loadComponent API를 이용하여 컴포넌트 작성하기 1](tutorial/loadcomponent-api-1.md)
+* [loadComponent API를 이용하여 컴포넌트 작성하기 2](tutorial/loadcomponent-api-2.md)
 
 ## Sample
 
