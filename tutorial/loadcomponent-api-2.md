@@ -124,6 +124,7 @@ import(document.baseURI + "_share/jikji.component/Media/Video.js")
     .catch(onError);
     
 function onLoaded(module){
+    const onInitialize = () => $self.show();
     new module.Video($self, config, onInitialize);
 }  
 function onError(err){
