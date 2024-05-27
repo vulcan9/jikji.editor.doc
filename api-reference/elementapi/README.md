@@ -22,14 +22,19 @@ $self == window.$this.find(dom);
 
 Text, Input, Image, Video/Audio Element API에 공통으로 제공되는 내용입니다.
 
-* ****[**uid: String**](../jjapi.md#undefined)****
-* ****[**dom: DOMElement**](../jjapi.md#undefined)****
-* ****[**scope: Object**](../jjapi.md#undefined)****
-* ****[**document: APIObject**](../jjapi.md#undefined)****
-* ****[**scaleFactor (): Number**](../jjapi.md#undefined-1)****
-* ****[**find (): APIObject**](../jjapi.md#undefined-1)****
-* ****[**findAll (onlyChild): Object**](../jjapi.md#undefined-1)****
+* [**uid: String**](../jjapi.md#undefined)
+* [**dom: DOMElement**](../jjapi.md#undefined)
+* [**scope: Object**](../jjapi.md#undefined)
+* [**document: APIObject**](../jjapi.md#undefined)
+* [**scaleFactor (): Number**](../jjapi.md#undefined-1)
 * **disable (): Boolean**
+* [_**find (any): APIObject**_](../jjapi.md#common-method-find) _**(deplecate)**_
+* [_**findAll (): Object**_](../jjapi.md#common-method-findall) _**(deplecate)**_
+* [_**children (): Object**_](../jjapi.md#undefined-1) _**(v3.3.32\~)**_
+* [_**childrenAll (): Object**_](../jjapi.md#undefined-1) _**(v3.3.32\~)**_
+* [_**loadCSS(): void**_](../jjapi.md#undefined-1) _**(v3.3.32\~)**_
+* [_**loadJS(): void**_](../jjapi.md#undefined-1) _**(v3.3.32\~)**_
+* [_**loadComponent(): void**_](../jjapi.md#undefined-1) _**(v3.3.32\~)**_
 
 #### 객체
 
@@ -194,16 +199,12 @@ Jik-ji 저작툴에서 설정된 크기, 위치 관련 API입니다. 매개변�
     // 'over' 상태의 회전각을 20도 설정함
     $self.rotate(20, 'over');
     ```
-*   **scale (value: Number|Object, stateName: String): Number**
-
-    * **value: Number** element의 scale(`0 ~ 1`)입니다.
-    * **value: Objcet**  {x: x축scale (`0 ~ 1`), y:  y축scale (`0 ~ 1`)}
-
-
-
-    * `$self.scale()` 리턴값
-      * x축, y축 scale이 같은 경우 Number 타입으로 리턴됨
-      * x축, y축 scale이 다른 경우 Object 타입으로 리턴됨 ({x, y})
+* **scale (value: Number|Object, stateName: String): Number**
+  * **value: Number** element의 scale(`0 ~ 1`)입니다.
+  * **value: Objcet**  {x: x축scale (`0 ~ 1`), y:  y축scale (`0 ~ 1`)}
+  * `$self.scale()` 리턴값
+    * x축, y축 scale이 같은 경우 Number 타입으로 리턴됨
+    * x축, y축 scale이 다른 경우 Object 타입으로 리턴됨 ({x, y})
 
 {% hint style="info" %}
 Group 요소인 경우 가로 세로 scale 비율이 1로 유지됩니다. \
