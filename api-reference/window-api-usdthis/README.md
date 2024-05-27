@@ -4,16 +4,21 @@
 
 ### 속성
 
-* ****[_**uid: String**_](../jjapi.md#common-property-uid)****
-* ****[_**dom: DOMElement**_](../jjapi.md#common-property-dom)****
-* ****[_**document: APIObject**_](../jjapi.md#common-property-document)****
-* ****[_**scope: Object**_](../jjapi.md#common-property-scope)****
+* [_**uid: String**_](../jjapi.md#common-property-uid)
+* [_**dom: DOMElement**_](../jjapi.md#common-property-dom)
+* [_**document: APIObject**_](../jjapi.md#common-property-document)
+* [_**scope: Object**_](../jjapi.md#common-property-scope)
 
 ### 메서드
 
-* ****[_**scaleFactor (): Number**_](../jjapi.md#common-method-scalefactor)****
-* ****[_**find (any): APIObject**_](../jjapi.md#common-method-find)****
-* ****[_**findAll (): Object**_](../jjapi.md#common-method-findall)****
+* [_**scaleFactor (): Number**_](../jjapi.md#common-method-scalefactor)
+* [_**find (any): APIObject**_](../jjapi.md#common-method-find)
+* [_**findAll (): Object**_](../jjapi.md#common-method-findall)
+* [_**children (): Object**_](../jjapi.md#undefined-1)
+* [_**childrenAll (): Object**_](../jjapi.md#undefined-1)
+* [_**loadCSS(): void**_](../jjapi.md#undefined-1)
+* [_**loadJS(): void**_](../jjapi.md#undefined-1)
+* [_**loadComponent(): void**_](../jjapi.md#undefined-1)
 
 ### 객체&#x20;
 
