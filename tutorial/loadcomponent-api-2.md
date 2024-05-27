@@ -81,7 +81,7 @@ export class Comp3 extends CompBase{
 
 ```
 
-#### 컴포넌트 로드 방법
+#### 컴포넌트 로드 방법 1
 
 ```javascript
 //  case 2. CompModule.js 파일 로드
@@ -105,5 +105,28 @@ $self.loadComponent(component, (modules) => {
 });
 ```
 
+#### 컴포넌트 로드 방법 2
 
+다음 방법은 일반적이지 않아 권장하지는 않지만 사용 가능한 코드입니다.
 
+{% hint style="info" %}
+`document.baseURI` 속성값이 `OPS` 폴더를 가리키고 있을때 사용 가능합니다.
+{% endhint %}
+
+initialize 이벤트에 코드 등록합니다.
+
+```javascript
+// 깜빡임 방지 위해 초기화 완료 이전까지 감추기
+$self.hide();
+
+import(document.baseURI + "_share/jikji.component/Media/Video.js")
+    .then(onLoaded)
+    .catch(onError);
+    
+function onLoaded(module){
+    new module.Video($self, config, onInitialize);
+}  
+function onError(err){
+    console.error('모듈 로드에러: ', err);
+}
+```
