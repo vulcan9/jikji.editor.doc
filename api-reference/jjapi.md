@@ -57,148 +57,231 @@
 
 ### 메서드
 
-*   _**scaleFactor (): Number**_
+_**scaleFactor (): Number**_
 
-    document.body에 적용된 scale transform 속성값 입니다.
+document.body에 적용된 scale transform 속성값 입니다.
 
-    ```javascript
-    var scaleNumber = $self.scaleFactor();
-    // document.body.style의 scale transform 속성값
-    ```
-*   _**find (any, onlyChild:Boolean): APIObject**_&#x20;
+```javascript
+var scaleNumber = $self.scaleFactor();
+// document.body.style의 scale transform 속성값
+```
 
-    _<mark style="color:red;">**(DEPRECATE: 대신 children API 사용)**</mark>_\
-    DOM 또는 DOM id Attribute 값을 통해 Element 객체의 API를 찾습니다. 아무 값도 전달하지 않으면 자기 자신(API)을 리턴 합니다. `window API`와 `docuemnt API`는 각각 `$this`와 `$api.document` 를 통해 접근할 수 있습니다.
+_**find (any, onlyChild:Boolean): APIObject**_&#x20;
 
-    * **any: String | DOMElement** \
-      id, uid, dom, name 값으로 element의 API Object 찾기   &#x20;
-    * **onlyChild: Boolean**  (생략가능) 자신의 하위(1-Depth) 노드에 대해서만 탐색할지(true) 여부\
-      onlyChild 값이  true 이면 자신의 바로 아래 (1-Depth) child element 만 검색합니다.\
-      onlyChild 값이  false 이면 자신의 하위 Depth 전체의 element를 검색합니다.&#x20;
+_<mark style="color:red;">**(DEPRECATE: 대신 children API 사용)**</mark>_\
+DOM 또는 DOM id Attribute 값을 통해 Element 객체의 API를 찾습니다. 아무 값도 전달하지 않으면 자기 자신(API)을 리턴 합니다. `window API`와 `docuemnt API`는 각각 `$this`와 `$api.document` 를 통해 접근할 수 있습니다.
 
-    &#x20; &#x20;
+* **any: String | DOMElement** \
+  id, uid, dom, name 값으로 element의 API Object 찾기   &#x20;
+* **onlyChild: Boolean**  (생략가능) 자신의 하위(1-Depth) 노드에 대해서만 탐색할지(true) 여부\
+  onlyChild 값이  true 이면 자신의 바로 아래 (1-Depth) child element 만 검색합니다.\
+  onlyChild 값이  false 이면 자신의 하위 Depth 전체의 element를 검색합니다.&#x20;
 
-    ```javascript
-    // uid 값과 일치하는 element의 API를 리턴
-    var api = $self.find(uid);
-    // id 값과 일치하는한 element의 API를 리턴
-    var api = $self.find(id);
-    // dom 참조와 일치하는 element의 API를 리턴
-    var api = $self.find(dom);
-    // name 값과 일치하는 element의 API를 리턴
-    var api = $self.find(name);
+&#x20; &#x20;
 
-    // 반환되는 api 는 배열일수도 있습니다. 
-    ```
+```javascript
+// uid 값과 일치하는 element의 API를 리턴
+var api = $self.find(uid);
+// id 값과 일치하는한 element의 API를 리턴
+var api = $self.find(id);
+// dom 참조와 일치하는 element의 API를 리턴
+var api = $self.find(dom);
+// name 값과 일치하는 element의 API를 리턴
+var api = $self.find(name);
 
-    (주의) 재사용 가능한 Component를 제작을위해서는 `uid`를 사용하는 것이 좋습니다. Copy\&Paste 또는 Component로 저장하는 과정에서 `uid`는 자동으로 새로 생성되는 element를 찾지만 id 값은 변하지 않기 때문에 항상 같은 element만을 찾게 됩니다.
-*   _**findAll (onlyChild:Boolean): Object**_&#x20;
+// 반환되는 api 는 배열일수도 있습니다. 
+```
 
-    _<mark style="color:red;">**(DEPRECATE: 대신 childrenAll API 사용)**</mark>_ \
-    모든 Element API 목록을 리턴 합니다.
+(주의) 재사용 가능한 Component를 제작을위해서는 `uid`를 사용하는 것이 좋습니다. Copy\&Paste 또는 Component로 저장하는 과정에서 `uid`는 자동으로 새로 생성되는 element를 찾지만 id 값은 변하지 않기 때문에 항상 같은 element만을 찾게 됩니다.
 
-    * onlyChild: **Boolean**  (생략가능 ) 자신의 하위(1-Depth) 노드에 대해서만 탐색할지(true) 여부   \
-      onlyChild 값이  true 이면 자신의 바로 아래 (1-Depth) child element 만 검색합니다.\
-      onlyChild 값이  false 이면 자신의 하위 Depth 전체의 element를 검색합니다.
+_**findAll (onlyChild:Boolean): Object**_&#x20;
 
-    ```javascript
-    var map = $self.findAll();
-    // Map {elementUID: elementAPI, ...}
+_<mark style="color:red;">**(DEPRECATE: 대신 childrenAll API 사용)**</mark>_ \
+모든 Element API 목록을 리턴 합니다.
 
-    // onlyChild를 지정하면 그룹 element인 경우 하위 element만 필터링 합니다. 
-    var childMap = $self.findAll(true)
-    ```
-*   _**children (any, oneDepth:Boolean): APIObject**_\
-    <mark style="color:red;">(Jik-ji 3.3.32 버전 이상에서 지원됨)</mark>\
-    <mark style="background-color:green;">자신의 하위 element 중에서</mark> id, uid, name 문자열   및 DOM 참조를 비교하여 Element 객체의 API를 찾습니다.  `find` 메서드와 다르게 DOM으로부터 검색하지 않고 데이터에서 검색한  결과를 리턴합니다. 아무것도   전달되지 않을때에는 `undefined`  값을 리턴 합니다.\
-    `window API`와 `docuemnt API`는 각각 `$this`와 `$api.document` 를 통해 접근할 수 있습니다.
+* onlyChild: **Boolean**  (생략가능 ) 자신의 하위(1-Depth) 노드에 대해서만 탐색할지(true) 여부   \
+  onlyChild 값이  true 이면 자신의 바로 아래 (1-Depth) child element 만 검색합니다.\
+  onlyChild 값이  false 이면 자신의 하위 Depth 전체의 element를 검색합니다.
 
-    * **any: String | DOMElement** \
-      id, uid, dom, name 값으로 하위element의 API Object 찾기   &#x20;
-    * **oneDepth: Boolean**  (생략가능) 자신의 하위(1-Depth) 노드에 대해서만 탐색할지(true) 여부\
-      oneDepth 값이  true 이면 자신의 바로 아래 (1-Depth) child element 만 검색합니다.\
-      oneDepth 값이  false (default) 이면 자신의 하위 Depth 전체의 element를 검색합니다. \
+```javascript
+var map = $self.findAll();
+// Map {elementUID: elementAPI, ...}
 
+// onlyChild를 지정하면 그룹 element인 경우 하위 element만 필터링 합니다. 
+var childMap = $self.findAll(true)
+```
 
-    ```javascript
-    // uid 값과 일치하는 element의 API를 리턴
-    var api = $self.children(uid);
-    // id 값과 일치하는한 element의 API를 리턴
-    var api = $self.children(id);
-    // dom 참조와 일치하는 element의 API를 리턴
-    var api = $self.children(dom);
-    // name 값과 일치하는 element의 API를 리턴
-    var api = $self.children(name);
+_**children (any, oneDepth:Boolean): APIObject**_\
+<mark style="color:red;">(Jik-ji 3.3.32 버전 이상에서 지원됨)</mark>\
+<mark style="background-color:green;">자신의 하위 element 중에서</mark> id, uid, name 문자열   및 DOM 참조를 비교하여 Element 객체의 API를 찾습니다.  `find` 메서드와 다르게 DOM으로부터 검색하지 않고 데이터에서 검색한  결과를 리턴합니다. 아무것도   전달되지 않을때에는 `undefined`  값을 리턴 합니다.\
+`window API`와 `docuemnt API`는 각각 `$this`와 `$api.document` 를 통해 접근할 수 있습니다.
 
-    // 반환되는 api 는 배열일수도 있습니다. 
-    ```
+* **any: String | DOMElement** \
+  id, uid, dom, name 값으로 하위element의 API Object 찾기   &#x20;
+* **oneDepth: Boolean**  (생략가능) 자신의 하위(1-Depth) 노드에 대해서만 탐색할지(true) 여부\
+  oneDepth 값이  true 이면 자신의 바로 아래 (1-Depth) child element 만 검색합니다.\
+  oneDepth 값이  false (default) 이면 자신의 하위 Depth 전체의 element를 검색합니다.&#x20;
 
-    \
-    컴포넌트를 제작할때 이전처럼 uid 를 사용해도 되지만 `children` api의 oneDepth 옵션을 사용하면 name, id 등을 사용해도 (하위 그룹에 있을지 모를) 중복된 id 또는 name을 사용하는 다른 컴포넌트의 element가 검색되는 염려가 없기때문에 가독성 있는 코드를 생성할 수 있습니다.
-*   _**childrenAll (oneDepth:Boolean): Object**_\
-    <mark style="color:red;">(Jik-ji 3.3.32 버전 이상에서 지원됨)</mark>\
-    <mark style="background-color:green;">자신의  하위 모든 Element</mark>들의 API 목록을 리턴 합니다.
+```javascript
+// uid 값과 일치하는 element의 API를 리턴
+var api = $self.children(uid);
+// id 값과 일치하는한 element의 API를 리턴
+var api = $self.children(id);
+// dom 참조와 일치하는 element의 API를 리턴
+var api = $self.children(dom);
+// name 값과 일치하는 element의 API를 리턴
+var api = $self.children(name);
 
-    * **oneDepth: Boolean**  (생략가능 ) 자신의 하위(1-Depth) 노드에 대해서만 탐색할지(true) 여부   \
-      oneDepth 값이  true 이면 자신의 바로 아래 (1-Depth) child element 만 검색합니다.\
-      oneDepth 값이  false  (default) 이면 자신의 하위 Depth 전체의 element를 검색합니다.
+// 반환되는 api 는 배열일수도 있습니다. 
+```
 
+\
+컴포넌트를 제작할때 이전처럼 uid 를 사용해도 되지만 `children` api의 oneDepth 옵션을 사용하면 name, id 등을 사용해도 (하위 그룹에 있을지 모를) 중복된 id 또는 name을 사용하는 다른 컴포넌트의 element가 검색되는 염려가 없기때문에 가독성 있는 코드를 생성할 수 있습니다.
 
+_**childrenAll (oneDepth:Boolean): Object**_\
+<mark style="color:red;">(Jik-ji 3.3.32 버전 이상에서 지원됨)</mark>\
+<mark style="background-color:green;">자신의  하위 모든 Element</mark>들의 API 목록을 리턴 합니다.
 
-    ```javascript
-    var map = $self.childrenAll();
-    // Map {elementUID: elementAPI, ...}
+* **oneDepth: Boolean**  (생략가능 ) 자신의 하위(1-Depth) 노드에 대해서만 탐색할지(true) 여부   \
+  oneDepth 값이  true 이면 자신의 바로 아래 (1-Depth) child element 만 검색합니다.\
+  oneDepth 값이  false  (default) 이면 자신의 하위 Depth 전체의 element를 검색합니다.
 
-    // onlyChild를 지정하면 그룹 element인 경우 하위 element만 필터링 합니다. 
-    var childMap = $self.childrenAll(true)
-    ```
+```javascript
+var map = $self.childrenAll();
+// Map {elementUID: elementAPI, ...}
 
-
-* _**loadJS (jsURL:String, onLoaded:Function):void**_\
-  <mark style="color:red;">(Jik-ji 3.1.44 버전 이상에서 지원됨)</mark>\
-  외부 JS 파일을 동적으로 로드합니다. 이미 로드된 JS 파일이면 중복 로드하지 않고 바로 `onLoaded` 메서드를 호출합니다.\
-  자세한 내용은 [Element에서 JS 파일 동적으로 로드](https://app.gitbook.com/s/y5qQb2jYHinob4a78GGK/\~/changes/d4OY85wjhCe2MUMUVOq3/tutorial/element-js) 페이지를 참고하세요\
-
-*   _**loadComponent(info, onload):void**_\
-    <mark style="color:red;">(Jik-ji 3.3.31 버전 이상에서 지원됨)</mark>\
-    컴포넌트를 정의한 외부 JS파일을 loadJS 함수를 이용하여 로드하고 컴포넌트 정의 객체를 전달해 줍니다.\
-    자세한 내용은 [loadComponent API를 이용하여  컴포넌트 작성하기](../tutorial/loadcomponent-api-1.md) 페이지를 참고하세요
-
-    * **info: {name:String, source: String}**\
-      name: 컴포넌트 정의 객체를 찾을 수 있는 문자열\
-      source: 컴포넌트가 정의된 JS 파일 경로
-    * **onLoaded: Function** \
-      로드가 완료되어 컴포넌트 객체가 전달되는 콜백 함수
+// onlyChild를 지정하면 그룹 element인 경우 하위 element만 필터링 합니다. 
+var childMap = $self.childrenAll(true)
+```
 
 
 
-    ```javascript
-    // 컴포넌트 설치 정보
-    const component = {
-      // 컴포넌트 소스 파일에서 정의한 component 객체 참조 문자열
-      name: 'jikjiComponent.Navi.Tab',
-      // 컴포넌트 소스 파일 경로
-      // (_share 폴더 아래에 중복되지 않을만한 경로가 좋음)
-      source: './_share/jikji.component/Navi/Tab.js'
-    }
+_**loadJS (options:String | Array | Object, onLoaded:Function):void**_\
+<mark style="color:red;">(Jik-ji 3.1.44 버전 이상에서 지원됨)</mark>\
+외부 JS 파일을 동적으로 로드합니다. 이미 로드된 JS 파일이면 중복 로드하지 않고 바로 `onLoaded` 메서드를 호출합니다.\
+자세한 내용은 [Element에서 JS 파일 동적으로 로드](https://app.gitbook.com/s/y5qQb2jYHinob4a78GGK/\~/changes/d4OY85wjhCe2MUMUVOq3/tutorial/element-js) 페이지를 참고하세요
 
-    $self.loadComponent(component, (Component) => {
-      // new Component($self, config, onInitialize, ...);
-    });
+* **options: String**: JS 파일 경로 문자열
 
-    //---------------------
-    // Tab.js 파일 작성
-    (function(component){
-      
-      // 컴포넌트 객체 정의
-      function Tab($self, config, onInitialize){
-        // 컴포넌트 기능 구현
-      }
+```javascript
+// 소스를 문자열로 지정
+loadJS("./_share/jikji.component/Media/script.js", onLoad);
 
-      // Export
-      if(!component.Tab) component.Tab = Tab;
-      window['jikjiComponent'] = component;
+// script.js 파일에서 정의한 객체 참조
+// const Video = window['jikjiComponent'].Media.Video;
 
-    })(window['jikjiComponent'] || {});
-    ```
+function onLoad(){
+  const Video = window['jikjiComponent'].Media.Video;
+  new Video($self, config, onInitialize);
+}
+```
+
+* **options: Object**: JS 파일 경로 및 script 태그 attribute 옵션
+
+```
+// options Object
+{
+  type: '' | 'module' | 'importmap',
+  source: 'JS 파일경로',
+  async: false,
+  code: ' source 항목이 없는 경우 실행할 코드'
+}
+```
+
+```javascript
+// 소스를 Object로 지정
+const js = {
+  source: './_share/jikji.component/Media/script.js'
+};
+loadJS(js, function (){
+  const Video = window['jikjiComponent'].Media.Video;
+  new Video($self, config, onInitialize);
+});
+
+// 또는 모듈 로드하는 경우
+const js = {
+  type: 'module', source: './_share/jikji.component/Media/Video.js'
+};
+loadJS(js, function (module){
+  // 로드한 모듈 파일 경로로 모듈 참조
+  const {Video} = module['./_share/jikji.component/Media/Video.js'];
+  new Video($self, config, onInitialize);
+});
+
+// 또는 code를 직접 실행하는 경우
+const js = [
+  { code: 'console.log('pure 코드 실행');' },
+  {
+    type: 'module',
+    code: `
+    import {Video} from "./_share/jikji.component/Media/Video.js";
+    window._temperaryModule = Video;
+    `
+  }
+]
+loadJS(js, function (){
+  // 전역변수로 직접 참조한 모듈
+  const Video = window._temperaryModule;
+  delete window._temperaryModule;
+  new Video($self, config, onInitialize);
+});
+```
+
+* **options: Array** : 경로 문자열   또는  옵션 Object 배열
+
+```
+// 경로문자열 또는 options Object를 배열로 전달
+const js = [
+  'js 1 파일 경로 문자열',
+  { options Object },
+  { options Object },
+  'js 2 파일 경로 문자열', ...
+]
+loadJS(js, function (){
+  // 모든 JS 파일이 로드된 후 호출됨
+});
+```
+
+_**loadComponent(info, onload):void**_\
+<mark style="color:red;">(Jik-ji 3.3.31 버전 이상에서 지원됨)</mark>\
+컴포넌트를 정의한 외부 JS파일을 loadJS 함수를 이용하여 로드하고 컴포넌트 정의 객체를 전달해 줍니다.\
+자세한 내용은 [loadComponent API를 이용하여  컴포넌트 작성하기](../tutorial/loadcomponent-api-1.md) 페이지를 참고하세요
+
+* **info: {name:String, source: String}**\
+  name: 컴포넌트 정의 객체를 찾을 수 있는 문자열\
+  source: 컴포넌트가 정의된 JS 파일 경로
+* **onLoaded: Function** \
+  로드가 완료되어 컴포넌트 객체가 전달되는 콜백 함수
+
+
+
+```javascript
+// 컴포넌트 설치 정보
+const component = {
+  // 컴포넌트 소스 파일에서 정의한 component 객체 참조 문자열
+  name: 'jikjiComponent.Navi.Tab',
+  // 컴포넌트 소스 파일 경로
+  // (_share 폴더 아래에 중복되지 않을만한 경로가 좋음)
+  source: './_share/jikji.component/Navi/Tab.js'
+}
+
+$self.loadComponent(component, (Component) => {
+  // new Component($self, config, onInitialize, ...);
+});
+
+//---------------------
+// Tab.js 파일 작성
+(function(component){
+  
+  // 컴포넌트 객체 정의
+  function Tab($self, config, onInitialize){
+    // 컴포넌트 기능 구현
+  }
+
+  // Export
+  if(!component.Tab) component.Tab = Tab;
+  window['jikjiComponent'] = component;
+
+})(window['jikjiComponent'] || {});
+```
 
