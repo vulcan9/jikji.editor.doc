@@ -12,13 +12,13 @@
 ### 메서드
 
 * [_**scaleFactor (): Number**_](../jjapi.md#common-method-scalefactor)
-* [_**find (any): APIObject**_](../jjapi.md#common-method-find)
-* [_**findAll (): Object**_](../jjapi.md#common-method-findall)
-* [_**children (): Object**_](../jjapi.md#undefined-1)
-* [_**childrenAll (): Object**_](../jjapi.md#undefined-1)
-* [_**loadCSS(): void**_](../jjapi.md#undefined-1)
-* [_**loadJS(): void**_](../jjapi.md#undefined-1)
-* [_**loadComponent(): void**_](../jjapi.md#undefined-1)
+* [_**find (any): APIObject**_](../jjapi.md#common-method-find) _**(deplecate)**_
+* [_**findAll (): Object**_](../jjapi.md#common-method-findall) _**(deplecate)**_
+* [_**children (): Object**_](../jjapi.md#undefined-1) _**(v3.3.32\~)**_
+* [_**childrenAll (): Object**_](../jjapi.md#undefined-1) _**(v3.3.32\~)**_
+* [_**loadCSS(): void**_](../jjapi.md#undefined-1) _**(v3.3.32\~)**_
+* [_**loadJS(): void**_](../jjapi.md#undefined-1) _**(v3.3.32\~)**_
+* [_**loadComponent(): void**_](../jjapi.md#undefined-1) _**(v3.3.32\~)**_
 
 ### 객체&#x20;
 
