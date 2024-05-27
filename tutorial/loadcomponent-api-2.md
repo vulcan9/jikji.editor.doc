@@ -4,7 +4,9 @@ description: 유형별로 컴포넌트 파일을 작성하는 방법을 정리�
 
 # loadComponent API를 이용하여 컴포넌트 작성하기 2
 
-> 직지 3.3.32 버전 이상에서 사용가능한 방법입니다.
+{% hint style="info" %}
+직지 3.3.32 버전 이상에서 사용가능한 방법입니다.
+{% endhint %}
 
 ## case 1. Module type이 아닌 JS 파일경우
 
