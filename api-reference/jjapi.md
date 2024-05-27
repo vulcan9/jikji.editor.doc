@@ -154,10 +154,32 @@ var map = $self.childrenAll();
 var childMap = $self.childrenAll(true)
 ```
 
+_**loadCSS (source:String, onLoaded:Function):void**_\
+<mark style="color:red;">(Jik-ji 3.3.32 버전 이상에서 지원됨)</mark>\
+외부 JS 파일을 동적으로 로드합니다. 이미 로드된 JS 파일이면 중복 로드하지 않고 바로 `onLoaded` 메서드를 호출합니다.\
+자세한 내용은 [Element에서 JS 파일 동적으로 로드](https://app.gitbook.com/s/y5qQb2jYHinob4a78GGK/\~/changes/d4OY85wjhCe2MUMUVOq3/tutorial/element-js) 페이지를 참고하세요
 
+* **source:String | Array** : CSS 파일 경로 문자열
+
+```javascript
+// 로드할 CSS 파일 경로를 지정
+const css = "./_share/jikji.component/Media/style.css";
+loadCSS(css, onLoaded);
+
+// 여러 파일을 설정하는 경우 배열로 지정
+const css = [
+  "css 1 파일 경로 문자열",
+  "css 2 파일 경로 문자열"
+];
+loadCSS(css, onLoaded);
+
+function onLoaded(){
+  // CSS 파일이 모두 로드되면 호출됨
+}
+```
 
 _**loadJS (options:String | Array | Object, onLoaded:Function):void**_\
-<mark style="color:red;">(Jik-ji 3.1.44 버전 이상에서 지원됨)</mark>\
+<mark style="color:red;">(Jik-ji 3.3.32 버전 이상에서 지원됨)</mark>\
 외부 JS 파일을 동적으로 로드합니다. 이미 로드된 JS 파일이면 중복 로드하지 않고 바로 `onLoaded` 메서드를 호출합니다.\
 자세한 내용은 [Element에서 JS 파일 동적으로 로드](https://app.gitbook.com/s/y5qQb2jYHinob4a78GGK/\~/changes/d4OY85wjhCe2MUMUVOq3/tutorial/element-js) 페이지를 참고하세요
 
@@ -165,12 +187,12 @@ _**loadJS (options:String | Array | Object, onLoaded:Function):void**_\
 
 ```javascript
 // 소스를 문자열로 지정
-loadJS("./_share/jikji.component/Media/script.js", onLoad);
+loadJS("./_share/jikji.component/Media/script.js", onLoaded);
 
 // script.js 파일에서 정의한 객체 참조
 // const Video = window['jikjiComponent'].Media.Video;
 
-function onLoad(){
+function onLoaded(){
   const Video = window['jikjiComponent'].Media.Video;
   new Video($self, config, onInitialize);
 }
@@ -178,110 +200,145 @@ function onLoad(){
 
 * **options: Object**: JS 파일 경로 및 script 태그 attribute 옵션
 
-```
+```javascript
 // options Object
 {
   type: '' | 'module' | 'importmap',
   source: 'JS 파일경로',
   async: false,
-  code: ' source 항목이 없는 경우 실행할 코드'
+  code: ' source 항목이 없는 경우 실행되는 코드'
 }
 ```
 
 ```javascript
-// 소스를 Object로 지정
+// case 1. 소스를 Object로 지정
+// ./_share/jikji.component 폴더는 임의로 정한 경로임
 const js = {
-  source: './_share/jikji.component/Media/script.js'
+  // 컴포넌트 구현 코드...
+  // window['jikjiComponent'].Comp 객체가 정의 되었다고 가정
+  source: './_share/jikji.component/Comp.js'
 };
+
 loadJS(js, function (){
-  const Video = window['jikjiComponent'].Media.Video;
-  new Video($self, config, onInitialize);
+  const Comp = window['jikjiComponent'].Comp;
+  new Comp ($self, config, onInitialize);
 });
 
-// 또는 모듈 로드하는 경우
+// case 2. 모듈 로드하는 경우
 const js = {
-  type: 'module', source: './_share/jikji.component/Media/Video.js'
+  type: 'module', source: './_share/jikji.component/Comp.js'
 };
-loadJS(js, function (module){
+
+loadJS(js, function (modules){
   // 로드한 모듈 파일 경로로 모듈 참조
-  const {Video} = module['./_share/jikji.component/Media/Video.js'];
-  new Video($self, config, onInitialize);
+  const {Comp} = modules['./_share/jikji.component/Comp.js'];
+  new Comp($self, config, onInitialize);
 });
 
-// 또는 code를 직접 실행하는 경우
+// case 3. code를 직접 실행하는 경우
 const js = [
   { code: 'console.log('pure 코드 실행');' },
   {
     type: 'module',
     code: `
-    import {Video} from "./_share/jikji.component/Media/Video.js";
-    window._temperaryModule = Video;
+    import {Comp} from "./_share/jikji.component/Comp.js";
+    window._temperaryModule = Comp;
     `
   }
 ]
 loadJS(js, function (){
   // 전역변수로 직접 참조한 모듈
-  const Video = window._temperaryModule;
+  const Comp = window._temperaryModule;
   delete window._temperaryModule;
-  new Video($self, config, onInitialize);
+  new Comp($self, config, onInitialize);
 });
 ```
 
 * **options: Array** : 경로 문자열   또는  옵션 Object 배열
 
-```
-// 경로문자열 또는 options Object를 배열로 전달
+<pre class="language-javascript"><code class="lang-javascript">// 경로문자열 또는 options Object를 배열로 전달
 const js = [
   'js 1 파일 경로 문자열',
   { options Object },
   { options Object },
   'js 2 파일 경로 문자열', ...
 ]
-loadJS(js, function (){
-  // 모든 JS 파일이 로드된 후 호출됨
+<strong>loadJS(js, function (){
+</strong>  // 모든 JS 파일이 로드된 후 호출됨
+});
+</code></pre>
+
+_**loadComponent(component, onLoaded):void**_\
+<mark style="color:red;">(Jik-ji 3.3.32 버전 이상에서 지원됨)</mark>\
+컴포넌트를 정의한 외부 파일을 `loadCSS`, `loadJS` 함수를 이용하여 로드하고 컴포넌트 정의 객체를 전달해 줍니다.\
+자세한 내용은 [loadComponent API를 이용하여  컴포넌트 작성하기](../tutorial/loadcomponent-api-1.md) 페이지를 참고하세요
+
+설정 가능한 인자는 `loadCSS`, `loadJS` API의 내용과 같습니다.
+
+* **component: {js:String|Object|Array, css: String|Array}**
+
+```javascript
+// Some code
+const component = {
+  css: '' 또는 [],  // loadCSS API에 전달되는 인자
+  js: '' 또는 {} 또는 [] // loadJS API에 전달되는 인자
+}
+
+loadComponent(component, function (modules){
+  // 모든 CSS, JS 파일이 로드된 후 호출됨
+  // modules 매개변수는 module type으로 JS 파일을 로드할때만 전달됨
 });
 ```
 
-_**loadComponent(info, onload):void**_\
-<mark style="color:red;">(Jik-ji 3.3.31 버전 이상에서 지원됨)</mark>\
-컴포넌트를 정의한 외부 JS파일을 loadJS 함수를 이용하여 로드하고 컴포넌트 정의 객체를 전달해 줍니다.\
-자세한 내용은 [loadComponent API를 이용하여  컴포넌트 작성하기](../tutorial/loadcomponent-api-1.md) 페이지를 참고하세요
-
-* **info: {name:String, source: String}**\
-  name: 컴포넌트 정의 객체를 찾을 수 있는 문자열\
-  source: 컴포넌트가 정의된 JS 파일 경로
 * **onLoaded: Function** \
-  로드가 완료되어 컴포넌트 객체가 전달되는 콜백 함수
-
-
+  모든 CSS, JS 파일이 로드된 후 호출되는 콜백 함수\
+  다음 방법으로 외부  파일을 동적으로 불러와 사용할 수    있습니다.
 
 ```javascript
 // 컴포넌트 설치 정보
+// ./_share/jikji.component 폴더는 임의로 정한 경로임
 const component = {
-  // 컴포넌트 소스 파일에서 정의한 component 객체 참조 문자열
-  name: 'jikjiComponent.Navi.Tab',
-  // 컴포넌트 소스 파일 경로
-  // (_share 폴더 아래에 중복되지 않을만한 경로가 좋음)
-  source: './_share/jikji.component/Navi/Tab.js'
+    // String or Array
+    css: ['./_share/jikji.component/Comp.css']
+    
+    // 컴포넌트 소스 파일 경로 (_share 폴더 아래에 두는 것이 좋음)
+    js: [
+        // case1. normal JS 소스 로드
+        './_share/jikji.component/Media/Comp1.js',
+    
+        // case2. module JS 소스 로드
+        {type: 'module', source: './_share/jikji.component/Comp2.js'},
+        
+        // case3. module code 로드
+        {
+            type: 'module',
+            code: `
+                import {Video} from "./_share/jikji.component/Comp3.js";
+                window._temperaryModule = Video;
+                `
+        },
+        
+        // case4. normal code 로드도 가능
+        { code: `console.log('normal code 로드도 가능');` },
+    ]
 }
 
-$self.loadComponent(component, (Component) => {
-  // new Component($self, config, onInitialize, ...);
+$self.loadComponent(component, (modules) => {
+    // case 1. normal JS 소스를 로드한 경우
+    // JS 파일에서 전역 변수에 저장된 객체를 사용함
+    const Comp = window['jikjiComponent'].Comp;
+    
+    // case 2. module JS 소스 로드한 경우
+    // 전달된 modules 인자에서 로드한 모듈 파일 경로로 모듈 참조
+    const {Comp2} = modules['./_share/jikji.component/Comp2.js'];
+    
+    // case 3. module code 로드
+    // 코드에서 임시 변수에 저장 후 이를 참조함
+    const Comp3 = window._temperaryModule;
+    delete window._temperaryModule;
 });
 
-//---------------------
-// Tab.js 파일 작성
-(function(component){
-  
-  // 컴포넌트 객체 정의
-  function Tab($self, config, onInitialize){
-    // 컴포넌트 기능 구현
-  }
-
-  // Export
-  if(!component.Tab) component.Tab = Tab;
-  window['jikjiComponent'] = component;
-
-})(window['jikjiComponent'] || {});
 ```
+
+컴포넌트 파일  작성은 [loadComponent API를 이용하여 컴포넌트 작성하기 2](../tutorial/loadcomponent-api-2.md) 내용을  참고하세요.
 
