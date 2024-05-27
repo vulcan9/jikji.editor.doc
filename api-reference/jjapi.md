@@ -187,13 +187,13 @@ _**loadJS (options:String | Array | Object, onLoaded:Function):void**_\
 
 ```javascript
 // 소스를 문자열로 지정
-loadJS("./_share/jikji.component/Media/script.js", onLoaded);
+loadJS("./_share/jikji.component/script.js", onLoaded);
 
 // script.js 파일에서 정의한 객체 참조
-// const Video = window['jikjiComponent'].Media.Video;
+// const Video = window['jikjiComponent'].Video;
 
 function onLoaded(){
-  const Video = window['jikjiComponent'].Media.Video;
+  const Video = window['jikjiComponent'].Video;
   new Video($self, config, onInitialize);
 }
 ```
@@ -304,7 +304,7 @@ const component = {
     // 컴포넌트 소스 파일 경로 (_share 폴더 아래에 두는 것이 좋음)
     js: [
         // case1. normal JS 소스 로드
-        './_share/jikji.component/Media/Comp1.js',
+        './_share/jikji.component/Comp1.js',
     
         // case2. module JS 소스 로드
         {type: 'module', source: './_share/jikji.component/Comp2.js'},
