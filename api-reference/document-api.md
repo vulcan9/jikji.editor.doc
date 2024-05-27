@@ -18,12 +18,17 @@ console.log('문서 너비 : ', w);
     (API Object)._eventNames
     // 출력 : "$destroy, click, dblclick, mousedown, mousemove, mouseout, mouseover, mouseup"
     ```
-* ****[_**uid: String**_](jjapi.md#common-property-uid)****
-* ****[_**dom: DOMElement**_](jjapi.md#common-property-dom)****
-* ****[_**scope: Object**_](jjapi.md#common-property-scope)****
-* ****[_**scaleFactor (): Number**_](jjapi.md#common-method-scalefactor)****
-* ****[_**find (any): APIObject**_](jjapi.md#common-method-find)****
-* ****[_**findAll (): Object**_](jjapi.md#common-method-findall)****
+* [_**uid: String**_](jjapi.md#common-property-uid)
+* [_**dom: DOMElement**_](jjapi.md#common-property-dom)
+* [_**scope: Object**_](jjapi.md#common-property-scope)
+* [_**scaleFactor (): Number**_](jjapi.md#common-method-scalefactor)
+* [_**find (any): APIObject**_](jjapi.md#common-method-find) _**(deplecate)**_
+* [_**findAll (): Object**_](jjapi.md#common-method-findall) _**(deplecate)**_
+* [_**children (): Object**_](jjapi.md#undefined-1) _**(v3.3.32\~)**_
+* [_**childrenAll (): Object**_](jjapi.md#undefined-1) _**(v3.3.32\~)**_
+* [_**loadCSS(): void**_](jjapi.md#undefined-1) _**(v3.3.32\~)**_
+* [_**loadJS(): void**_](jjapi.md#undefined-1) _**(v3.3.32\~)**_
+* [_**loadComponent(): void**_](jjapi.md#undefined-1) _**(v3.3.32\~)**_
 
 ### 속성
 
