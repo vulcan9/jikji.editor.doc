@@ -1,53 +1,105 @@
+---
+description: 유형별로 컴포넌트 파일을 작성하는 방법을 정리해 보았습니다.
+---
+
 # loadComponent API를 이용하여 컴포넌트 작성하기 2
 
+## case 1. Module type이 아닌 JS 파일경우
 
-
-
+#### 컴포넌트 정의 파일
 
 ```javascript
+//  case 1. CompScript.js 파일 작성
+(function(component){
+  
+  // 컴포넌트 객체 정의
+  function Comp($self, config, onInitialize){
+    // 컴포넌트 기능 구현...
+    
+  }
 
-    // 컴포넌트 설정
-    const config = {
-        // dev: true,
-        // element api를 설정된 name으로 찾음
-        elements: {
-            loading: '로딩중',
-            video: '비디오'
-        },
-        
-        options: {
-            loop: false,
-            muted: false,
-            src: 'https://vjs.zencdn.net/v/oceans.mp4',
-        }
-    };
-    
-    //-------------------------
-    
-    // 깜빡임 방지 위해 초기화 완료 이전까지 감추기
-    $self.hide();
-    
-    // 컴포넌트 소스 파일 로드 & 초기화
-    const source = {
-        // css: ''
-        js: [
-            './_share/jikji.component/Media/Video.js',
-            // 모듈 로드할때
-            // { type: 'module', source: './_share/jikji.component/Media/Module.js' },
-            // 코드 실행할때
-            {
-                type: 'module',
-                code: `
-                import {Module} from "./_share/jikji.component/Media/Module.js";
-                `
-            }
-        ]
-    };
-    $self.loadComponent(source, () => {
-    	const onInitialize = () => $self.show();
-        // 컴포넌트 소스 파일에서 정의한 component 객체 참조
-        const Component = window.jikjiComponent.Media.Video;
-        new Component($self, config, onInitialize);
-    });
+  // Export
+  if(!component.Comp) component.Comp= Comp;
+  window['jikjiComponent'] = component;
+
+})(window['jikjiComponent'] || {});
 ```
+
+#### 컴포넌트 로드 방법
+
+```javascript
+//  case 1. CompScript.js 파일 로드
+// ./_share/jikji.component 폴더는 임의로 저장한 경로임
+const component = {
+    css: './_share/jikji.component/Comp.css'
+    js: './_share/jikji.component/CompScript.js'
+}
+
+// 깜빡임 방지 위해 초기화 완료 이전까지 감추기
+$self.hide();
+
+$self.loadComponent(component, () => {
+    const onInitialize = () => $self.show();
+    
+    // JS 파일에서 전역 변수에 저장된 객체를 사용함
+    const Comp = window['jikjiComponent'].Comp;
+    new Comp($self, config, onInitialize);
+});
+```
+
+## case 2. Module type인 경우 (type='module')
+
+#### 컴포넌트 정의 파일
+
+```javascript
+//  case 2. CompModule.js 파일 작성
+import {CompBase} from "./CompBase.js";
+
+export class Comp2 extends CompBase{
+
+    constructor($self, config, onInitialize) {
+        super($self, config, onInitialize);
+        // 컴포넌트 기능 구현...
+        
+    }
+
+}
+
+export class Comp3 extends CompBase{
+
+    constructor($self, config, onInitialize) {
+        super($self, config, onInitialize);
+        // 컴포넌트 기능 구현...
+        
+    }
+
+}
+
+```
+
+#### 컴포넌트 로드 방법
+
+```javascript
+//  case 2. CompModule.js 파일 로드
+// ./_share/jikji.component 폴더는 임의로 저장한 경로임
+const component = {
+    css: './_share/jikji.component/Comp.css'
+    // case 2. module JS 소스 로드한 경우
+    js: { type: 'module', './_share/jikji.component/CompModule.js' }
+}
+
+// 깜빡임 방지 위해 초기화 완료 이전까지 감추기
+$self.hide();
+
+$self.loadComponent(component, (modules) => {
+    const onInitialize = () => $self.show();
+    
+    // 전달된 modules 인자에서 로드한 모듈 파일 경로로 모듈 참조
+    const {Comp2, Comp3} = modules['./_share/jikji.component/CompModule.js'];
+    new Comp2($self, config, onInitialize);
+    new Comp3($self, config, onInitialize);
+});
+```
+
+
 
