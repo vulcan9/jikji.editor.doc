@@ -54,7 +54,7 @@ dnd 객체를 이용하면 드래그 & 드랍 기능을 구현할 수 있습니�
 ```
 // Some code
 function (){
-  return $element.find('[jj-thumbnail]');
+  return $element.children('[jj-thumbnail]');
 }
 ```
 
