@@ -163,7 +163,7 @@ OPS/_share/asset.file
             // ...
 
             function findAPI(name){
-                return (typeof name === 'string') ? $self.find(name, true) : name;
+                return (typeof name === 'string') ? $self.children(name, true) : name;
             }
         })(config.elements);
 
