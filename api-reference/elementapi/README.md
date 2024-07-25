@@ -2,12 +2,12 @@
 
 #### $self
 
-Element API의 샘플 코드에 사용된 `$self` 변수는 Element API 자신을 참조하는 변수입니다. `이벤트 동작 설정` 창의 `코드 작성` 항목에 코드를 작성할때 사용되며 외부 JS 파일에 작성되는 코드에는 사용할 수 없습니다. 대신 외부 JS 파일에서는 find() API를 이용하여 Element API를 찾을 수 있습니다.
+Element API의 샘플 코드에 사용된 `$self` 변수는 Element API 자신을 참조하는 변수입니다. `이벤트 동작 설정` 창의 `코드 작성` 항목에 코드를 작성할때 사용되며 외부 JS 파일에 작성되는 코드에는 사용할 수 없습니다. 대신 외부 JS 파일에서는 children() API를 이용하여 Element API를 찾을 수 있습니다.
 
 ```javascript
-$self == window.$this.find('아이디');
-$self == window.$this.find(uid);
-$self == window.$this.find(dom);
+$self === window.$this.children('아이디');
+$self === window.$this.children(uid);
+$self === window.$this.children(dom);
 ```
 
 자세한 사항은 [이벤트 설정창에서 코드 작성 도움말>미리정의된 변수](../../tutorial/eventwindow/properties.md) 를 참고하세요.
