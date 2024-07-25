@@ -75,7 +75,7 @@ function update(){
 ```javascript
 function update(){
   // 이미지 Element 찾기
-  var image = $self.find('element-5445d04c-6129-494b-90cd-e0c967206f27');
+  var image = $self.children('element-5445d04c-6129-494b-90cd-e0c967206f27');
 
   if($self.scope.toggle){
     // `over` 이미지 불러올때 생성된 Asset UID
