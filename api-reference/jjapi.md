@@ -23,7 +23,7 @@
 
     ```javascript
     // element의 uid 찾기
-    var uid = window.$this.find('element 아이디').uid;
+    var uid = window.$this.children('element 아이디').uid;
     ```
 *   _**dom: DOMEleemnt**_
 
@@ -31,7 +31,7 @@
 
     ```javascript
     // element의 DOM (node)
-    var dom = window.$this.find('element 아이디').dom;
+    var dom = window.$this.children('element 아이디').dom;
     ```
 *   _**document: APIObject**_
 
@@ -40,7 +40,7 @@
     ```javascript
     // documentAPI 찾기
     var documentAPI = window.$this.document;
-    var documentAPI = window.$this.find('element 아이디').document;
+    var documentAPI = window.$this.children('element 아이디').document;
     ```
 *   _**scope: Object**_
 
