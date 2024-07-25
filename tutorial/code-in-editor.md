@@ -18,16 +18,16 @@
 
 ```javascript
 //var buttonAPI = $self;
-var imageAPI = $self.find('image', false);
+var imageAPI = $self.children('image', false);
 // 또는
-// var imageAPI = window.$this.find('image');
+// var imageAPI = window.$this.children('image');
 imageAPI.toggleVisible();
 ```
 
 여기에서 사용한 `$self`는 `코드 작성` 박스에서만 제공되는 예약어로 element 자기 자신의 API를 참조합니다. `self`는 다음 코드와 동일합니다.
 
 ```javascript
-$self = window.$this.find('자신의 element 아이디');
+$self = window.$this.children('자신의 element 아이디');
 ```
 
 자세한 내용은 [이벤트 설정창에서 스크립트 작성](eventwindow/) 도움말을 참고 하세요.
@@ -54,11 +54,11 @@ $self = window.$this.find('자신의 element 아이디');
 * `코드 작성`란에 다음 코드를 작성 합니다.
 
 ```javascript
-var button = $self.find('button');
+var button = $self.children('button');
 
 // 클릭 이벤트 등록
 button.on('click', function(e){
-  var image = $self.find('image');
+  var image = $self.children('image');
   image.toggleVisible();
 });
 ```
