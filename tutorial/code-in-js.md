@@ -7,12 +7,12 @@
 
 ```javascript
 $(document).ready(function(){
-  var button = window.$this.find('button');
+  var button = window.$this.children('button');
   button.setStyle('cursor', 'pointer');
 
   // 클릭 이벤트 등록
   button.on('click', function(event){
-    var image = window.$this.find('image');
+    var image = window.$this.children('image');
     image.toggleVisible();
   });
 });
