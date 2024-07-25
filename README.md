@@ -11,16 +11,16 @@ DOM을 찾았으면 여기에 style등을 지정하는 방법으로 제어할 �
 ```javascript
 - window.$this 속성
 - (api 객체).document 속성
-- (api 객체).find() 메서드
-- (api 객체).findAll() 메서드
+- (api 객체).children() 메서드
+- (api 객체).childrenAll() 메서드
 ```
 
 정확히 말하면 위 메서드와 속성을 통해 element가 자지고 있는 API 객체를 찾을 수 있습니다. API 객체의 `dom` 속성을 통해 DOM 객체를 참조할 수 있으나 위에서 얘기했듯이 직접 다루는 것 보다는 API를 통해 제어하는 것을 권합니다. 다음 코드는 보이기/감추기 기능을 가진 토글 버튼을 만드는 간단한 예입니다.
 
 ```javascript
-var buttonAPI = window.$this.find('버튼 아이디');
+var buttonAPI = window.$this.children('버튼 아이디');
 buttonAPI.on('click', function(){
-    var targetAPI= window.$this.find('target 아이디');
+    var targetAPI= window.$this.children('target 아이디');
     targetAPI.toggleVisible();
 });
 ```
