@@ -49,7 +49,7 @@ var playerID = 'youtube_video';
 
 (function (){
     // ID 설정: ID는 속성창에 아이디 입력란에 작성해도 됨
-    var $player = $self.find('element-69d1db71-5a09-486f-bb96-e01b2ce20556');
+    var $player = $self.children('element-69d1db71-5a09-486f-bb96-e01b2ce20556');
     $player.dom.id = playerID;
     // console.error('$player : ', $player);
 })();
@@ -107,7 +107,7 @@ URL 뒤에 `enablejsapi=1` 매개변수를 전달해 주어야 JS를 통해 컨�
 
 (function (){
   // http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&#x26;origin=http://localhost:5301
-  var $player = $self.find('element-3b9d2eb3-7db1-451a-b6a5-a8d71593c374', true);
+  var $player = $self.children('element-3b9d2eb3-7db1-451a-b6a5-a8d71593c374', true);
   var iframe = $($player.dom).find('iframe')[0];
   iframe.id = playerID;
   iframe.setAttribute('sandbox', 'allow-forms allow-scripts allow-pointer-lock allow-same-origin allow-top-navigation allow-presentation allow-popups allow-popups-to-escape-sandbox');
