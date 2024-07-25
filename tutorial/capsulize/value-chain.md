@@ -5,7 +5,7 @@
 #### Element에서 다른 Element로 값을 전달하는 경우
 
 ```
-var selfContext = $this.find('element uid');
+var selfContext = $this.children('element uid');
 selfContext['속성 이름'] = '값';
 ```
 
@@ -13,7 +13,7 @@ selfContext['속성 이름'] = '값';
 
 ```
 $(function(){
-  var selfContext = $this.find('element uid');
+  var selfContext = $this.children('element uid');
   selfContext['속성 이름'] = '값';
 });
 ```
@@ -36,7 +36,7 @@ console.log($self['속성 이름']);
 2.  다음 코드로 HTML Element에 값을 할당합니다.
 
     ```
-    var selfContext = $this.find('html element uid');
+    var selfContext = $this.children('html element uid');
     selfContext['속성 이름'] = $self.capsule;
     ```
 3.  HTML Element의 코드 편집창에서 전달된 값을 사용합니다.
