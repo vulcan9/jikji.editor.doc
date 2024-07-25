@@ -31,7 +31,7 @@ $(document).ready(function(){
     // 코드에는 드래그 중인 Element가 최상위(`zIndex`)로 올라오도록 하는 기능도 함께 구현되어 있습니다.
     try{
         // Image Element API 찾기
-        var image = window.$this.find('image');
+        var image = window.$this.children('image');
         var zIndex = image.getStyle('zIndex');
 
         // 이벤트 등록
