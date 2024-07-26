@@ -119,13 +119,13 @@ initialize 이벤트에 코드 등록합니다.
 // 깜빡임 방지 위해 초기화 완료 이전까지 감추기
 $self.hide();
 
-import(document.baseURI + "_share/jikji.component/Media/Video.js")
+import(document.baseURI + "_share/jikji.component/Media/CompModule.js")
     .then(onLoaded)
     .catch(onError);
     
 function onLoaded(module){
     const onInitialize = () => $self.show();
-    new module.Video($self, config, onInitialize);
+    new module.Comp2($self, config, onInitialize);
 }  
 function onError(err){
     console.error('모듈 로드에러: ', err);
