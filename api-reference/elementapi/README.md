@@ -420,3 +420,24 @@ Jik-ji 저작툴에서 생성된 element에 style을 적용할때에는 알아�
     $self.disable(true);
     var disable = $self.disable();
     ```
+
+#### 링크 메서드
+
+*   **link (params: Object): void**
+
+    (v3.3.50 이)  링크를 걸어주는 방법입니다.
+
+    * param:Object
+      * url: String 링크 주소
+      * target:  String 새창 이름 지정 (기본값:  '')
+      * width: Number (target: '\_blank' 일때) 창 너비 설정
+      * height: Number (target: '\_blank' 일때) 창 높 설정
+      * fullscreen: Boolean (target: '\_blank' 일때) 새창을 f ullscreen으로 띄울지 여부
+      *   maximize: Boolean (target: '\_blank' 일때) 새창을 최대크기로  띄울지여부
+
+          ```javascript
+          // 팝업창으로 링크열기
+          $self.link({
+            url: '링크주소', target: '_blank'
+          });
+          ```
