@@ -89,7 +89,7 @@ export class Comp3 extends CompBase{
 const component = {
     css: './_share/jikji.component/Comp.css'
     // case 2. module JS 소스 로드한 경우
-    js: { type: 'module', './_share/jikji.component/CompModule.js' }
+    js: { type: 'module', source: './_share/jikji.component/CompModule.js' }
 }
 
 // 깜빡임 방지 위해 초기화 완료 이전까지 감추기
