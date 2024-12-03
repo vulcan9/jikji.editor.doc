@@ -44,3 +44,4 @@
 * [Image Element API](api-reference/image-element-api.md)
 * [Web Element API](api-reference/web-element-api.md)
 * [Video/Audio Element API](api-reference/mediaapi.md)
+* [Youtube Element API](api-reference/web-element-api-1.md)
